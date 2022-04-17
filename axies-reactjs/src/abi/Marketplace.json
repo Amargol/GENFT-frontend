@@ -1,0 +1,155 @@
+[
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "generativeTokenAddress",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "owner",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "name",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "baseURI",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint16",
+				"name": "maxSupply",
+				"type": "uint16"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint32",
+				"name": "price",
+				"type": "uint32"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint8",
+				"name": "royaltyRate",
+				"type": "uint8"
+			}
+		],
+		"name": "gtMinted",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "generativeTokens",
+		"outputs": [
+			{
+				"internalType": "contract GenerativeToken",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getLen",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "name",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "baseURI",
+				"type": "string"
+			},
+			{
+				"internalType": "uint16",
+				"name": "maxSupply",
+				"type": "uint16"
+			},
+			{
+				"internalType": "uint32",
+				"name": "price",
+				"type": "uint32"
+			},
+			{
+				"internalType": "uint8",
+				"name": "royaltyRate",
+				"type": "uint8"
+			}
+		],
+		"name": "mintGT",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "name",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "baseURI",
+				"type": "string"
+			},
+			{
+				"internalType": "uint16",
+				"name": "maxSupply",
+				"type": "uint16"
+			},
+			{
+				"internalType": "uint32",
+				"name": "price",
+				"type": "uint32"
+			},
+			{
+				"internalType": "uint8",
+				"name": "royaltyRate",
+				"type": "uint8"
+			}
+		],
+		"name": "mintGTAddr",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	}
+]
