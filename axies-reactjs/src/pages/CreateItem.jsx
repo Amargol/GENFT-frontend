@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState }from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../components/header/Header';
 import Footer from '../components/footer/Footer';
@@ -12,30 +12,92 @@ import Marketplace from '../abi/Marketplace.json'
 import Web3Modal from 'web3modal'
 import { ethers } from 'ethers'
 
+//const [files, setFiles] = useState([]);
+
 const CreateItem = () => {
+
+    const [selectedFile, setSelectedFile] = useState();
+    const [isFilePicked, setIsFilePicked] = useState(false);
+
+    const changeHandler = (event) => {
+		setSelectedFile(event.target.files[0]);
+		setIsFilePicked(true);
+	};
+
+    async function onSubmit(){
+        const formData = new FormData();
+        formData.append('file', selectedFile);
+    
+        //make a post request to localhost:5000/file and pass in a file in the response
+        const response = await fetch('http://localhost:5000/file', {
+          method: 'POST',
+          headers: new Headers({
+            'Access-Control-Allow-Origin': 'http://127.0.0.1:3000',
+            'Access-Control-Allow-Methods' : 'POST',
+            'Access-Control-Allow-Headers': 'Content-Type',
+          }),
+          contentType: 'multipart/form-data',
+          body: formData
+        });
+    
+        console.log("ipfs folder hash: ", response);
+    }
+
     async function createGenerator (e) {
-      e.preventDefault()
+        e.preventDefault()
 
-      const providerOptions = {
-        /* See Provider Options Section */
-        binancechainwallet: {
-          package: true
-        }      
-      };
+        const formData = new FormData();
+        formData.append('file', selectedFile);
+    
+        //make a post request to localhost:5000/file and pass in a file in the response
+        let IPFSresponse = await fetch('http://0.0.0.0:5000/file', {
+            method: 'POST',
+            contentType: 'multipart/form-data',
+            body: formData
+        }).then(response => {
+            var data = response.json().then(async d => {
+                console.log(d)
+                const providerOptions = {
+                    /* See Provider Options Section */
+                    binancechainwallet: {
+                      package: true
+                    }      
+                  };
+                  
+                  const web3Modal = new Web3Modal({
+                    network: "mainnet", // optional
+                    cacheProvider: true, // optional
+                    providerOptions // required
+                  });
+                  
+                  const instance = await web3Modal.connect();
+            
+                  const provider = new ethers.providers.Web3Provider(instance);
+                  const signer = provider.getSigner();
+                  const contract = new ethers.Contract("0x8FAd4aA9B8Fc933F2A234481904437396db3cB5a", Marketplace, signer)
+            
+                  await contract.mintGT("MyName", d, 1, 1, 1)
+            })
+            console.log()
+        }).catch((error) => console.log(error))
+        
+        
+    
+        
+
+    //make a post request to localhost:5000/file and pass in a file in the response
+    // const response = await fetch('http://localhost:5000/file', {
+    //   method: 'POST',
+    //   headers: new Headers({
+    //     'Access-Control-Allow-Origin': 'http://127.0.0.1:3000',
+    //     'Access-Control-Allow-Methods' : 'POST',
+    //     'Access-Control-Allow-Headers': 'Content-Type',
+    //   }),
+    //   contentType: 'multipart/form-data',
+    //   body: formData
+    // });
+
       
-      const web3Modal = new Web3Modal({
-        network: "mainnet", // optional
-        cacheProvider: true, // optional
-        providerOptions // required
-      });
-      
-      const instance = await web3Modal.connect();
-
-      const provider = new ethers.providers.Web3Provider(instance);
-      const signer = provider.getSigner();
-      const contract = new ethers.Contract("0x8FAd4aA9B8Fc933F2A234481904437396db3cB5a", Marketplace, signer)
-
-      await contract.mintGT("MyName", "MyBaseUri", 1, 1, 1)
     }
 
     // async function createGeneratorEthers (e) {
@@ -128,7 +190,7 @@ const CreateItem = () => {
                                     <h4 className="title-create-item">Upload file</h4>
                                     <label className="uploadFile">
                                         <span className="filename">PNG, JPG, GIF, WEBP or MP4. Max 200mb.</span>
-                                        <input type="file" className="inputfile form-control" name="file" />
+                                        <input type="file" className="inputfile form-control" name="file" onChange={changeHandler} />
                                     </label>
                                  </form>
                                 <div className="flat-tabs tab-create-item">
@@ -244,4 +306,4 @@ const CreateItem = () => {
     );
 }
 
-export default CreateItem;
+export default CreateItem
