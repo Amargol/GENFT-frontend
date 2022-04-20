@@ -13,23 +13,33 @@
 			},
 			{
 				"internalType": "string",
+				"name": "description",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
 				"name": "baseSiteURI",
 				"type": "string"
 			},
 			{
-				"internalType": "uint16",
+				"internalType": "string",
+				"name": "seed",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
 				"name": "maxSupply",
-				"type": "uint16"
+				"type": "uint256"
 			},
 			{
-				"internalType": "uint32",
+				"internalType": "uint256",
 				"name": "price",
-				"type": "uint32"
+				"type": "uint256"
 			},
 			{
-				"internalType": "uint8",
+				"internalType": "uint256",
 				"name": "royaltyRate",
-				"type": "uint8"
+				"type": "uint256"
 			}
 		],
 		"stateMutability": "nonpayable",
@@ -144,12 +154,25 @@
 	},
 	{
 		"inputs": [],
+		"name": "_description",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
 		"name": "_maxSupply",
 		"outputs": [
 			{
-				"internalType": "uint16",
+				"internalType": "uint256",
 				"name": "",
-				"type": "uint16"
+				"type": "uint256"
 			}
 		],
 		"stateMutability": "view",
@@ -160,9 +183,9 @@
 		"name": "_price",
 		"outputs": [
 			{
-				"internalType": "uint32",
+				"internalType": "uint256",
 				"name": "",
-				"type": "uint32"
+				"type": "uint256"
 			}
 		],
 		"stateMutability": "view",
@@ -173,9 +196,22 @@
 		"name": "_royaltyRate",
 		"outputs": [
 			{
-				"internalType": "uint8",
+				"internalType": "uint256",
 				"name": "",
-				"type": "uint8"
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "_seed",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
 			}
 		],
 		"stateMutability": "view",
@@ -241,7 +277,7 @@
 				"type": "string"
 			}
 		],
-		"stateMutability": "pure",
+		"stateMutability": "view",
 		"type": "function"
 	},
 	{
@@ -258,6 +294,56 @@
 				"internalType": "address",
 				"name": "",
 				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getInfo",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "address",
+						"name": "tokenAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "imgUri",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "description",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "price",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "maxSupply",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "curSupply",
+						"type": "uint256"
+					}
+				],
+				"internalType": "struct GenerativeTokenInfo",
+				"name": "",
+				"type": "tuple"
 			}
 		],
 		"stateMutability": "view",

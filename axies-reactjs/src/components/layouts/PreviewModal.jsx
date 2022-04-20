@@ -17,9 +17,9 @@ return (
         <p className="text-center">The base asset has been successfully deployed onto IPFS</p>
         
         <div style={{width: '100%', display: 'flex', justifyContent: 'space-around'}}>
-            <iframe src={"http://35.232.44.3:8080/ipfs/" + props.cid}  height="200" width="300" title="IPFS Frame"></iframe>
+            <iframe src={"http://35.232.44.3:8080/ipfs/" + props.cid}  height="200" width="200" title="IPFS Frame"></iframe>
         </div>
-        <a href={"http://35.232.44.3:8080/ipfs/" + props.cid} className="btn btn-primary" data-toggle="modal" data-target="#popup_bid_success" data-dismiss="modal" aria-label="Close">Visit on IPFS </a>
+        <a href={"http://35.232.44.3:8080/ipfs/" + props.cid} target="_blank" className="btn btn-primary" data-toggle="modal" data-target="#popup_bid_success" data-dismiss="modal" aria-label="Close">Visit on IPFS </a>
     </div>
     </Modal>
     

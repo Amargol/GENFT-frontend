@@ -23,26 +23,38 @@
 			{
 				"indexed": false,
 				"internalType": "string",
+				"name": "description",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"internalType": "string",
 				"name": "baseURI",
 				"type": "string"
 			},
 			{
 				"indexed": false,
-				"internalType": "uint16",
+				"internalType": "string",
+				"name": "seed",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
 				"name": "maxSupply",
-				"type": "uint16"
+				"type": "uint256"
 			},
 			{
 				"indexed": false,
-				"internalType": "uint32",
+				"internalType": "uint256",
 				"name": "price",
-				"type": "uint32"
+				"type": "uint256"
 			},
 			{
 				"indexed": false,
-				"internalType": "uint8",
+				"internalType": "uint256",
 				"name": "royaltyRate",
-				"type": "uint8"
+				"type": "uint256"
 			}
 		],
 		"name": "gtMinted",
@@ -62,6 +74,56 @@
 				"internalType": "contract GenerativeToken",
 				"name": "",
 				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getGenerativeTokens",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "address",
+						"name": "tokenAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "imgUri",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "description",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "price",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "maxSupply",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "curSupply",
+						"type": "uint256"
+					}
+				],
+				"internalType": "struct GenerativeTokenInfo[]",
+				"name": "",
+				"type": "tuple[]"
 			}
 		],
 		"stateMutability": "view",
@@ -89,66 +151,37 @@
 			},
 			{
 				"internalType": "string",
+				"name": "description",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
 				"name": "baseURI",
 				"type": "string"
 			},
 			{
-				"internalType": "uint16",
+				"internalType": "string",
+				"name": "seed",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
 				"name": "maxSupply",
-				"type": "uint16"
+				"type": "uint256"
 			},
 			{
-				"internalType": "uint32",
+				"internalType": "uint256",
 				"name": "price",
-				"type": "uint32"
+				"type": "uint256"
 			},
 			{
-				"internalType": "uint8",
+				"internalType": "uint256",
 				"name": "royaltyRate",
-				"type": "uint8"
+				"type": "uint256"
 			}
 		],
 		"name": "mintGT",
 		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "name",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "baseURI",
-				"type": "string"
-			},
-			{
-				"internalType": "uint16",
-				"name": "maxSupply",
-				"type": "uint16"
-			},
-			{
-				"internalType": "uint32",
-				"name": "price",
-				"type": "uint32"
-			},
-			{
-				"internalType": "uint8",
-				"name": "royaltyRate",
-				"type": "uint8"
-			}
-		],
-		"name": "mintGTAddr",
-		"outputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
 		"stateMutability": "nonpayable",
 		"type": "function"
 	}

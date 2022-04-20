@@ -19,6 +19,12 @@ import PreviewModal from '../components/layouts/PreviewModal';
 
 const CreateItem = () => {
 
+    const [name, setName] = useState("")
+    const [description, setDescription] = useState("")
+    const [price, setPrice] = useState("")
+    const [royaltyRate, setRoyaltyRate] = useState("")
+    const [maxSupply, setMaxSupply] = useState("")
+
     const [selectedFile, setSelectedFile] = useState();
     const [isFilePicked, setIsFilePicked] = useState(false);
     const [modalShow, setModalShow] = useState(false);
@@ -72,29 +78,28 @@ const CreateItem = () => {
                 
                 setcidGen(cid)
 
-                setModalShow(true)
+                // const providerOptions = {
+                //   /* See Provider Options Section */
+                //   binancechainwallet: {
+                //     package: true
+                //   }      
+                // };
+                
+                // const web3Modal = new Web3Modal({
+                //   network: "mainnet", // optional
+                //   cacheProvider: true, // optional
+                //   providerOptions // required
+                // });
+                
+                // const instance = await web3Modal.connect();
+          
+                // const provider = new ethers.providers.Web3Provider(instance);
+                // const signer = provider.getSigner();
+                // const contract = new ethers.Contract("0xA73B8Bd084dcFd0DDA40Fcf500a82ec71ea7d74D", Marketplace, signer)
+                
+                await contract.mintGT(name, description, "http://35.232.44.3:8080/ipfs/" + cid, "aosifoia", parseInt(maxSupply), parseInt(price), parseInt(royaltyRate))
 
-                const providerOptions = {
-                    /* See Provider Options Section */
-                    binancechainwallet: {
-                      package: true
-                    }      
-                  };
-                  
-                  const web3Modal = new Web3Modal({
-                    network: "mainnet", // optional
-                    cacheProvider: true, // optional
-                    providerOptions // required
-                  });
-                  
-                  const instance = await web3Modal.connect();
-            
-                  const provider = new ethers.providers.Web3Provider(instance);
-                  const signer = provider.getSigner();
-                  const contract = new ethers.Contract("0x8FAd4aA9B8Fc933F2A234481904437396db3cB5a", Marketplace, signer)
-                  
-                  await contract.mintGT("MyName", d, 1, 1, 1)
-                  
+                setModalShow(true)
             })
             console.log()
         }).catch((error) => console.log(error))
@@ -231,23 +236,23 @@ const CreateItem = () => {
                                             <form onSubmit={createGenerator}>
                                               
                                                 <h4 className="title-create-item">Name</h4>
-                                                <input type="text" placeholder="Item Name" />
+                                                <input value={name} onChange={(e) => setName(e.target.value)} type="text" placeholder="Item Name" />
 
                                                 <h4 className="title-create-item">Description</h4>
-                                                <textarea placeholder="e.g. “This is very limited item”"></textarea>
+                                                <textarea value={description} onChange={(e) => setDescription(e.target.value)} placeholder="e.g. “This is a good project”"></textarea>
 
                                                 <div className="row-form style-3">
                                                     <div className="inner-row-form">
-                                                        <h4 className="title-create-item">Price</h4>
-                                                        <input type="text" placeholder="Enter price for one item (ETH)" />
+                                                        <h4 className="title-create-item">Price (eth)</h4>
+                                                        <input value={price} onChange={(e) => setPrice(e.target.value)} type="text" placeholder="Enter price for one item (ETH)" />
                                                     </div>
                                                     <div className="inner-row-form">
                                                         <h4 className="title-create-item">Royalty Rate (%)</h4>
-                                                        <input type="text" placeholder="5%" />
+                                                        <input value={royaltyRate} onChange={(e) => setRoyaltyRate(e.target.value)} type="text" placeholder="5%" />
                                                     </div>
                                                     <div className="inner-row-form">
                                                         <h4 className="title-create-item">Max Supply</h4>
-                                                        <input type="text" placeholder="512" />
+                                                        <input value={maxSupply} onChange={(e) => setMaxSupply(e.target.value)} type="text" placeholder="512" />
                                                     </div>
                                                     {/* This is a multi input */}
                                                     {/* <div className="inner-row-form style-2">
