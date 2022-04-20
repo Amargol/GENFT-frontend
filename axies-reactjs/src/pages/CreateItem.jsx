@@ -11,6 +11,8 @@ import avt from '../assets/images/avatar/avt-9.jpg'
 import Marketplace from '../abi/Marketplace.json'
 import Web3Modal from 'web3modal'
 import { ethers } from 'ethers'
+import CardModal from '../components/layouts/CardModal';
+import PreviewModal from '../components/layouts/PreviewModal';
 
 //const [files, setFiles] = useState([]);
 
@@ -18,6 +20,8 @@ const CreateItem = () => {
 
     const [selectedFile, setSelectedFile] = useState();
     const [isFilePicked, setIsFilePicked] = useState(false);
+    const [modalShow, setModalShow] = useState(false);
+    const [cidGen, setcidGen] = useState("Qmd286K6pohQcTKYqnS1YhWrCiS4gz7Xi34sdwMe9USZ7u");
 
     const changeHandler = (event) => {
 		setSelectedFile(event.target.files[0]);
@@ -43,6 +47,7 @@ const CreateItem = () => {
         console.log("ipfs folder hash: ", response);
     }
 
+
     async function createGenerator (e) {
         e.preventDefault()
 
@@ -50,13 +55,24 @@ const CreateItem = () => {
         formData.append('file', selectedFile);
     
         //make a post request to localhost:5000/file and pass in a file in the response
-        let IPFSresponse = await fetch('http://0.0.0.0:5000/file', {
+        let IPFSresponse = await fetch('http://35.232.44.3:5000/file', {
             method: 'POST',
             contentType: 'multipart/form-data',
             body: formData
         }).then(response => {
             var data = response.json().then(async d => {
                 console.log(d)
+                
+                //split d into an array by space
+                var cidStream = d.cid
+                var cidArr = cidStream.split(' ')
+                var cid = cidArr = cidArr[cidArr.length - 2]
+                console.log(cid)
+                
+                setcidGen(cid)
+
+                setModalShow(true)
+
                 const providerOptions = {
                     /* See Provider Options Section */
                     binancechainwallet: {
@@ -75,8 +91,9 @@ const CreateItem = () => {
                   const provider = new ethers.providers.Web3Provider(instance);
                   const signer = provider.getSigner();
                   const contract = new ethers.Contract("0x8FAd4aA9B8Fc933F2A234481904437396db3cB5a", Marketplace, signer)
-            
+                  
                   await contract.mintGT("MyName", d, 1, 1, 1)
+                  
             })
             console.log()
         }).catch((error) => console.log(error))
@@ -146,7 +163,7 @@ const CreateItem = () => {
             <div className="tf-create-item tf-section">
                 <div className="themesflat-container">
                     <div className="row">
-                         <div className="col-xl-3 col-lg-6 col-md-6 col-12">
+                         {/* <div className="col-xl-3 col-lg-6 col-md-6 col-12">
                              <h4 className="title-create-item">Preview item</h4>
                             <div className="sc-card-product">
                                 <div className="card-media">
@@ -183,8 +200,8 @@ const CreateItem = () => {
                                     <Link to="/activity-01" className="view-history reload">View History</Link>
                                 </div>
                             </div>
-                         </div>
-                         <div className="col-xl-9 col-lg-6 col-md-12 col-12">
+                         </div> */}
+                         <div className="col-xl-12 col-lg-12 col-md-12 col-12">
                              <div className="form-create-item">
                                  <form action="#">
                                     <h4 className="title-create-item">Upload file</h4>
@@ -302,6 +319,13 @@ const CreateItem = () => {
                 </div>
             </div>
             <Footer />
+            
+            <PreviewModal
+                show={modalShow}
+                cid={cidGen}
+                onHide={() => setModalShow(false)}
+                />
+            
         </div>
     );
 }
