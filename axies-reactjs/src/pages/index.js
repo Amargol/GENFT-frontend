@@ -24,6 +24,7 @@ import WalletConnect from "./WalletConnect";
 import CreateItem from "./CreateItem";
 import EditProfile from "./EditProfile";
 import Ranking from "./Ranking";
+import GenerativeTokens from "./GenerativeTokens";
 import Login from "./Login";
 import SignUp from "./SignUp";
 import NoResult from "./NoResult";
@@ -59,6 +60,7 @@ const routes = [
   { path: '/create-item', component: <CreateItem />},
   { path: '/edit-profile', component: <EditProfile />},
   { path: '/ranking', component: <Ranking />},
+  { path: '/GenerativeTokens', component: <GenerativeTokens />},
   { path: '/login', component: <Login />},
   { path: '/sign-up', component: <SignUp />},
   { path: '/no-result', component: <NoResult />},

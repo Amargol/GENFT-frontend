@@ -9,6 +9,7 @@ import img1 from '../assets/images/box-item/image-box-6.jpg'
 import avt from '../assets/images/avatar/avt-9.jpg'
 
 import Marketplace from '../abi/Marketplace.json'
+import GenerativeToken from '../abi/GenerativeToken.json'
 import Web3Modal from 'web3modal'
 import { ethers } from 'ethers'
 
@@ -38,25 +39,32 @@ const CreateItem = () => {
       await contract.mintGT("MyName", "MyBaseUri", 1, 1, 1)
     }
 
-    // async function createGeneratorEthers (e) {
+
+
+    // async function getName (e) {
     //   e.preventDefault()
 
-
     //   console.log("hi")
-    //   // A Web3Provider wraps a standard Web3 provider, which is
-    //   // what MetaMask injects as window.ethereum into each page
-    //   const provider = new ethers.providers.Web3Provider(window.ethereum)
-    //   console.log("hi")
-
-    //   // MetaMask requires requesting permission to connect users accounts
-    //   await provider.send("eth_requestAccounts", []);
-    //   console.log("hi")
-
-    //   // The MetaMask plugin also allows signing transactions to
-    //   // send ether and pay to change state within the blockchain.
-    //   // For this, you need the account signer...
-    //   const signer = provider.getSigner()
-    //   console.log("hi")
+    //   const providerOptions = {
+    //     /* See Provider Options Section */
+    //     binancechainwallet: {
+    //       package: true
+    //     }      
+    //   };
+      
+    //   const web3Modal = new Web3Modal({
+    //     network: "mainnet", // optional
+    //     cacheProvider: true, // optional
+    //     providerOptions // required
+    //   });
+      
+    //   const instance = await web3Modal.connect();
+  
+    //   const provider = new ethers.providers.Web3Provider(instance);
+    //   const signer = provider.getSigner();
+    //   const contract = new ethers.Contract("0xF1d5Ac71Cd04fc3142cbA2A2A75AdEE6E3c62937", GenerativeToken, signer)
+      
+    //   console.log(await contract.name())
     // }
 
     return (
