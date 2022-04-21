@@ -49,10 +49,14 @@ const Ranking = () => {
 
         const data = await contract.getGenerativeTokens()
 
-        console.log(data)
-        setGts(data)
+        let res = []
 
-        // console.log(data.map((data, index) => data.name))
+        for (let i = data.length - 1; i >= 0; i--) {
+            res.push(data[i])
+        }
+
+        console.log(res)
+        setGts(res)
       }
       
       initialize()
@@ -80,71 +84,7 @@ const Ranking = () => {
                     </div>
                 </div>                    
             </section>
-            <section className="tf-section tf-rank">
-                <div className="container-fluid">
-                    <div className="row">
-                        <div className="col-md-12">
-                            <div className="table-ranking">
-                                <div className="flex th-title">
-                                    <div className="column1">
-                                      <h3>Name</h3>
-                                    </div>
-                                    <div className="column">
-                                      <h3>Price</h3>
-                                    </div>
-                                    <div className="column">
-                                      <h3>Current Supply</h3>
-                                    </div>
-                                    <div className="column">
-                                      <h3>Max Supply</h3>
-                                    </div>
-                                </div>
-                                {
-                                    data.slice(0,visible).map((item,index) => (
-                                        <div key={index} className="fl-item2">
-                                            <div className="item flex">
-                                                <div className="infor-item flex column1">
-                                                    <div className="media">
-                                                        <img src={item.imgUri} alt="Axies" />
-                                                    </div>
-                                                    <div className="content-collection m-auto">
-                                                        <h5 className="title"><Link to="/item-detail">{item.name}</Link></h5>
-                                                        {/* <div className="author flex">
-                                                            <div className="author-avatar">
-                                                                <img src={item.imgAuthor} alt="Axies" />
-                                                                <div className="badge"><i className="ripple"></i></div>
-                                                            </div>
-                                                            <div className="content">
-                                                                <p>Owned By</p>
-                                                                <h6><Link to="/authors-01">{item.nameAuthor}</Link></h6>
-                                                            </div>
-                                                        </div> */}
-                                                    </div>
-                                                </div>
-                                                <div className="column">
-                                                    <span>{10}</span>
-                                                </div>
-                                                <div className="column">
-                                                    <span>{10}</span>
-                                                </div>
-                                                <div className="column">
-                                                    <span>{10}</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    ))
-                                }
-                                {
-                                    visible < data.length && 
-                                    <div className="col-md-12 wrap-inner load-more text-center"> 
-                                        <Link to="#" id="load-more" className="sc-button loadmore fl-button pri-3" onClick={showMoreItems}><span>Load More</span></Link>
-                                    </div>
-                                }
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
+            <section className="tf-section tf-rank">                
                 <GeneratorList data={gts} />
             </section>
             <Footer />

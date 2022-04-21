@@ -1328,6 +1328,7 @@ a:focus {
     --bg-section2 : #f8f8f8;
     --primary-color8: #7A798A;
     --primary-color9: #7A798A;
+    --progress-color: #E8E8E8;
 }
 
 .is_dark {
@@ -1341,6 +1342,7 @@ a:focus {
     --bg-section2 : #14141F;
     --primary-color8: #fff;
     --primary-color9: #8A8AA0;
+    --progress-color: #656565;
 }
 
 /* Header

@@ -13,6 +13,11 @@ const TodayPicks = props => {
     }
 
     const [modalShow, setModalShow] = useState(false);
+
+    let getPercentage = (curSupply, maxSupply) => {
+      return curSupply.mul(100).div(maxSupply)
+    }
+
     return (
         <Fragment>
             <section className="tf-section today-pick">
@@ -70,7 +75,10 @@ const TodayPicks = props => {
                                         </div>
                                         <div className="card-title">
                                             <h5 className="style2"><a href={"https://rinkeby.etherscan.io/address/" + item.tokenAddress} target={"_blank"}>{item.name}</a></h5>
-                                            <div className="tags">{"GeNFT"}</div>
+                                            <div className="tags">{item.curSupply + "/" + item.maxSupply}</div>
+                                        </div>
+                                        <div className={"progress"} style={{height: "10px", marginBottom: "15px", backgroundColor: "var(--progress-color)"}} >
+                                          <div className="b" role="progressbar" style={{"width": "25%", "backgroundColor": "var(--primary-color3)"}}></div>
                                         </div>
                                         <div className="meta-info">
                                             <div className="author">
@@ -89,10 +97,8 @@ const TodayPicks = props => {
                                                   <h5 style={{marginTop: "0px"}}>{item.price.toString()}</h5>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div>                                        
                                         <div className="card-bottom">
-                                            <button onClick={() => setModalShow(true)} className="sc-button style bag fl-button pri-3 no-bg"><span>Place Bid</span></button>
-                                            <Link to="/activity-01" className="view-history reload">View History</Link>
                                         </div>
                                     </div>
                                 </div>

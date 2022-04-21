@@ -74,7 +74,6 @@ const CreateItem = () => {
                 var cidStream = d.cid
                 var cidArr = cidStream.split(' ')
                 var cid = cidArr = cidArr[cidArr.length - 2]
-                console.log(cid)
                 
                 setcidGen(cid)
 
@@ -91,13 +90,13 @@ const CreateItem = () => {
                   providerOptions // required
                 });
                 
-                // const instance = await web3Modal.connect();
+                const instance = await web3Modal.connect();
           
-                // const provider = new ethers.providers.Web3Provider(instance);
-                // const signer = provider.getSigner();
-                // const contract = new ethers.Contract("0xA73B8Bd084dcFd0DDA40Fcf500a82ec71ea7d74D", Marketplace, signer)
+                const provider = new ethers.providers.Web3Provider(instance);
+                const signer = provider.getSigner();
+                const contract = new ethers.Contract("0xA73B8Bd084dcFd0DDA40Fcf500a82ec71ea7d74D", Marketplace, signer)
                 
-                // await contract.mintGT(name, description, "http://35.232.44.3:8080/ipfs/" + cid, "aosifoia", parseInt(maxSupply), parseInt(price), parseInt(royaltyRate))
+                await contract.mintGT(name, description, "http://35.232.44.3:8080/ipfs/" + cid, "aosifoia", parseInt(maxSupply), parseInt(price), parseInt(royaltyRate))
 
                 setModalShow(true)
             })
