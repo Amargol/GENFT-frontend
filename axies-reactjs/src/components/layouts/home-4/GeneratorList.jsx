@@ -66,7 +66,7 @@ const TodayPicks = props => {
                                             {/* <div className="coming-soon">{"item.feature"}</div> */}
                                         </div>
                                         <div className="card-title">
-                                            <h5 className="style2"><Link to="/item-details-01">{item.name}</Link></h5>
+                                            <h5 className="style2"><a href={"https://rinkeby.etherscan.io/address/" + item.tokenAddress} target={"_blank"}>{item.name}</a></h5>
                                             <div className="tags">{"GeNFT"}</div>
                                         </div>
                                         <div className="meta-info">
