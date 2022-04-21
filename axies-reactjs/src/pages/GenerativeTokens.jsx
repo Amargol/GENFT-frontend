@@ -1,4 +1,4 @@
-import React , { useState } from 'react';
+import React , { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../components/header/Header';
 import Footer from '../components/footer/Footer';
@@ -9,24 +9,55 @@ import img4 from '../assets/images/box-item/img6rank.jpg'
 import img5 from '../assets/images/box-item/img1rank.jpg'
 import img6 from '../assets/images/box-item/img2rank.jpg'
 import imga1 from '../assets/images/avatar/author_rank.jpg'
+import { ethers } from 'ethers'
+import Web3Modal from 'web3modal'
+
+import Marketplace from '../abi/Marketplace.json'
+import GeneratorList from '../components/layouts/home-4/GeneratorList';
+import todayPickData from '../assets/fake-data/data-today-pick';
+
 
 const Ranking = () => {
-    const [data] = useState(
-        [
-            {
-              imgUri: "https://gateway.fxhash2.xyz/ipfs/QmdqNBq7nCG6GCBbfCgZMwX7WitSjEfXnycqNGtLSd3b7R",
-              name: "MyGenerativeToken",
-              price: 10,
-              maxSupply: 10,
-              curSupply: 5,
-              description: "This is the description"
-            }
-        ]
-    )
+    const [data, setData] = useState([])
+    const [gts, setGts] = useState([])
     const [visible , setVisible] = useState(6);
     const showMoreItems = () => {
         setVisible((prevValue) => prevValue + 3);
     }
+
+    useEffect(() => {
+      async function initialize () {
+
+        const providerOptions = {
+          /* See Provider Options Section */
+          binancechainwallet: {
+            package: true
+          }      
+        };
+        
+        const web3Modal = new Web3Modal({
+          network: "mainnet", // optional
+          cacheProvider: true, // optional
+          providerOptions // required
+        });
+        
+        const instance = await web3Modal.connect();
+  
+        const provider = new ethers.providers.Web3Provider(instance);
+        const signer = provider.getSigner();
+        const contract = new ethers.Contract("0xA73B8Bd084dcFd0DDA40Fcf500a82ec71ea7d74D", Marketplace, signer)
+
+        const data = await contract.getGenerativeTokens()
+
+        console.log(data)
+        setGts(data)
+
+        // console.log(data.map((data, index) => data.name))
+      }
+      
+      initialize()
+    }, []);    
+
     return (
         <div>
             <Header />
@@ -91,13 +122,13 @@ const Ranking = () => {
                                                     </div>
                                                 </div>
                                                 <div className="column">
-                                                    <span>{item.price}</span>
+                                                    <span>{10}</span>
                                                 </div>
                                                 <div className="column">
-                                                    <span>{item.curSupply}</span>
+                                                    <span>{10}</span>
                                                 </div>
                                                 <div className="column">
-                                                    <span>{item.maxSupply}</span>
+                                                    <span>{10}</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -113,6 +144,8 @@ const Ranking = () => {
                         </div>
                     </div>
                 </div>
+                
+                <GeneratorList data={gts} />
             </section>
             <Footer />
         </div>

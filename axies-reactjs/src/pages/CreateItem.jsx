@@ -78,18 +78,18 @@ const CreateItem = () => {
                 
                 setcidGen(cid)
 
-                // const providerOptions = {
-                //   /* See Provider Options Section */
-                //   binancechainwallet: {
-                //     package: true
-                //   }      
-                // };
+                const providerOptions = {
+                  /* See Provider Options Section */
+                  binancechainwallet: {
+                    package: true
+                  }      
+                };
                 
-                // const web3Modal = new Web3Modal({
-                //   network: "mainnet", // optional
-                //   cacheProvider: true, // optional
-                //   providerOptions // required
-                // });
+                const web3Modal = new Web3Modal({
+                  network: "mainnet", // optional
+                  cacheProvider: true, // optional
+                  providerOptions // required
+                });
                 
                 // const instance = await web3Modal.connect();
           
@@ -97,7 +97,7 @@ const CreateItem = () => {
                 // const signer = provider.getSigner();
                 // const contract = new ethers.Contract("0xA73B8Bd084dcFd0DDA40Fcf500a82ec71ea7d74D", Marketplace, signer)
                 
-                await contract.mintGT(name, description, "http://35.232.44.3:8080/ipfs/" + cid, "aosifoia", parseInt(maxSupply), parseInt(price), parseInt(royaltyRate))
+                // await contract.mintGT(name, description, "http://35.232.44.3:8080/ipfs/" + cid, "aosifoia", parseInt(maxSupply), parseInt(price), parseInt(royaltyRate))
 
                 setModalShow(true)
             })
