@@ -61,7 +61,10 @@ const TodayPicks = props => {
                                             </div>
                                         </div> */}
                                         <div className="card-media">
-                                            <Link to="/item-details-01"><img src={"https://www.dictionary.com/e/wp-content/uploads/2018/05/100_800x800-300x300.png"} alt="Axies" /></Link>
+                                            {/* <Link to="/item-details-01"><img src={"https://www.dictionary.com/e/wp-content/uploads/2018/05/100_800x800-300x300.png"} alt="Axies" /></Link> */}
+                                            <div style={{width: '100%', display: 'flex', justifyContent: 'space-around'}}>
+                                                <iframe src={"http://35.232.44.3:8080/ipfs/QmQ5nusUzBAeS3YGBnYroimd2jcQRYXvDZMj9c72D83Hxn"}  height="300" width="300" title="IPFS Frame"></iframe>
+                                            </div>
                                             {/* <Link to="/login" className="wishlist-button heart"><span className="number-like">{"item.wishlist"}</span></Link> */}
                                             {/* <div className="coming-soon">{"item.feature"}</div> */}
                                         </div>
@@ -72,11 +75,11 @@ const TodayPicks = props => {
                                         <div className="meta-info">
                                             <div className="author">
                                                 <div className="avatar">
-                                                    <img src={"https://www.dictionary.com/e/wp-content/uploads/2018/05/100_800x800-300x300.png"} alt="Axies" />
+                                                  <img src={"https://www.dictionary.com/e/wp-content/uploads/2018/05/100_800x800-300x300.png"} alt="Axies" />
                                                 </div>
                                                 <div className="info">
-                                                    <span>Owned By</span>
-                                                    <h6> <Link to="/author-02">{"item.nameAuthor"}</Link> </h6>
+                                                    <span>Created By</span>
+                                                    <h6> <Link to="/author-02">{"Shreyas"}</Link> </h6>
                                                 </div>
                                             </div>
                                             <div className="price">

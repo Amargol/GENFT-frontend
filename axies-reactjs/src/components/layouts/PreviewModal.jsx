@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import { Modal } from "react-bootstrap";
 
 const PreviewModal = (props) => {
+
+console.log("http://35.232.44.3:8080/ipfs/" + props.cid)
     
 return (
 
