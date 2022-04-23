@@ -74,7 +74,7 @@ const TodayPicks = props => {
                                             {/* <div className="coming-soon">{"item.feature"}</div> */}
                                         </div>
                                         <div className="card-title">
-                                            <h5 className="style2"><a href={"https://rinkeby.etherscan.io/address/" + item.tokenAddress} target={"_blank"}>{item.name}</a></h5>
+                                            <h5 className="style2"><Link to={"/mintToken/" + item.tokenAddress} >{item.name}</Link></h5>
                                             <div className="tags">{item.curSupply + "/" + item.maxSupply}</div>
                                         </div>
                                         <div className={"progress"} style={{height: "10px", marginBottom: "15px", backgroundColor: "var(--progress-color)"}} >

@@ -13,6 +13,7 @@ import Explore04 from "./Explore04";
 import LiveAuctions from "./LiveAuctions";
 import ItemDetails01 from "./ItemDetails01";
 import ItemDetails02 from "./ItemDetails02";
+import MintToken from "./MintToken"
 import Activity01 from "./Activity01";
 import Activity02 from "./Activity02";
 import Blog from "./Blog";
@@ -49,6 +50,7 @@ const routes = [
   { path: '/live-auctions', component: <LiveAuctions />},
   { path: '/item-details-01', component: <ItemDetails01 />},
   { path: '/item-details-02', component: <ItemDetails02 />},
+  { path: '/mintToken/:tokenAddress', component: <MintToken />},
   { path: '/activity-01', component: <Activity01 />},
   { path: '/activity-02', component: <Activity02 />},
   { path: '/blog', component: <Blog />},
