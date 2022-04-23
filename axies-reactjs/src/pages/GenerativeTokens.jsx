@@ -32,7 +32,7 @@ const Ranking = () => {
           /* See Provider Options Section */
           binancechainwallet: {
             package: true
-          }      
+          }
         };
         
         const web3Modal = new Web3Modal({
@@ -71,13 +71,13 @@ const Ranking = () => {
                     <div className="row">
                         <div className="col-md-12">
                             <div className="page-title-heading mg-bt-12">
-                                <h1 className="heading text-center">Ranking</h1>
+                                <h1 className="heading text-center">Collections</h1>
                             </div>
                             <div className="breadcrumbs style2">
                                 <ul>
                                     <li><Link to="/">Home</Link></li>
                                     <li><Link to="#">Pages</Link></li>
-                                    <li>Ranking</li>
+                                    <li>Collections</li>
                                 </ul>
                             </div>
                         </div>
