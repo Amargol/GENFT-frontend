@@ -18,8 +18,9 @@ import imgdetail1 from '../assets/images/box-item/images-item-details.jpg'
 import { ethers } from 'ethers'
 import Web3Modal from 'web3modal'
 
-
+import IterationList from '../components/layouts/home-4/IterationList';
 import GenerativeToken from '../abi/GenerativeToken.json'
+import Marketplace from '../abi/Marketplace.json'
 
 
 const MintToken = () => {
@@ -28,7 +29,9 @@ const MintToken = () => {
 
     const [details, setDetails] = useState(undefined)
     const tokenContract = useRef(null);
+    const marketplaceContract = useRef(null);
     
+    const [gts, setGts] = useState([])
 
     console.log(tokenAddress)
 
@@ -101,7 +104,10 @@ const MintToken = () => {
         const signer = provider.getSigner();
         const contract = new ethers.Contract(tokenAddress, GenerativeToken, signer)
 
+        const marketplaceContract = new ethers.Contract("0xA73B8Bd084dcFd0DDA40Fcf500a82ec71ea7d74D", Marketplace, signer)
+
         tokenContract.current = contract
+        marketplaceContract.current = marketplaceContract
 
         var tokenInfo;
 
@@ -111,6 +117,18 @@ const MintToken = () => {
         } catch (error) {
           navigate('/no-result')
         }
+
+        const data = await marketplaceContract.getGenerativeTokens()
+
+        let res = []
+
+        for (let i = data.length - 1; i >= 0; i--) {
+            res.push(data[i])
+        }
+
+        res = data.slice(0, 2)
+
+        setGts(res)
 
         console.log(tokenInfo)
       }
@@ -334,6 +352,7 @@ const MintToken = () => {
                   </div>
               </div>
             }
+            <IterationList data={gts}/>
             <LiveAuction data={liveAuctionData} />
             <Footer />
         </div>
