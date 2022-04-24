@@ -135,9 +135,14 @@ const MintToken = () => {
     
         // Or, promises are also supported:
         // value: provider.getBalance(addr)
-    };    
+      };    
 
-      await tokenContract.current.create(overrides)
+      try {
+        await tokenContract.current.create(overrides)
+      } catch (error) {
+        // console.log(error.message)
+        alert("error")
+      }
     }
 
     return (
@@ -215,7 +220,6 @@ const MintToken = () => {
                                               </div>
                                           </div>
                                       </div>
-                                      <p>{details.description}</p>
                                       <div className="meta-item-details style2">
                                           <div className="item meta-price">
                                               <span className="heading">Price</span>
@@ -227,13 +231,26 @@ const MintToken = () => {
                                               </div>
                                           </div>
                                           <div className="item count-down">
-                                              <span className="heading style-2">Countdown</span>
-                                              <Countdown date={Date.now() + 500000000}>
+                                              <span className="heading style-2"></span>
+                                              {/* <Countdown date={Date.now() + 500000000}>
                                                   <span>You are good to go!</span>
-                                              </Countdown>
+                                              </Countdown> */}
+                                              <div className="tags">
+                                                <h6> <a target={"_blank"} href="https://testnets.opensea.io/collection/bob-le8sw1ljyp">View In Etherscan</a> </h6>
+                                              </div>
+                                              <span className="heading style-2"></span>
                                           </div>
                                       </div>
+                                      <div style={{paddingTop: 10, paddingBottom: 10, marginBottom: 10}}>
+                                        <h5 style={{textAlign: "right"}}>
+                                          {details.curSupply + "/" + details.maxSupply} Minted
+                                        </h5>
+                                        <div className={"progress"} style={{height: "10px", marginTop: "12px", backgroundColor: "var(--progress-color)"}} >
+                                          <div className="b" role="progressbar" style={{"width": "25%", "backgroundColor": "var(--primary-color3)"}}></div>
+                                        </div>
+                                      </div>
                                       <Link to="/wallet-connect" onClick={mint} className="sc-button loadmore style bag fl-button pri-3"><span>Mint Iteration</span></Link>
+                                      <p style={{marginBottom: 15}}>{details.description}</p>
                                       <div className="flat-tabs themesflat-tabs">
                                       <Tabs>
                                           <TabList>
