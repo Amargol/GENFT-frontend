@@ -246,7 +246,7 @@ const MintToken = () => {
                                           {details.curSupply + "/" + details.maxSupply} Minted
                                         </h5>
                                         <div className={"progress"} style={{height: "10px", marginTop: "12px", backgroundColor: "var(--progress-color)"}} >
-                                          <div className="b" role="progressbar" style={{"width": "25%", "backgroundColor": "var(--primary-color3)"}}></div>
+                                          <div className="b" role="progressbar" style={{"width": details.curSupply.mul(100).div(details.maxSupply) + "%", "backgroundColor": "var(--primary-color3)"}}></div>
                                         </div>
                                       </div>
                                       <Link to="/wallet-connect" onClick={mint} className="sc-button loadmore style bag fl-button pri-3"><span>Mint Iteration</span></Link>
