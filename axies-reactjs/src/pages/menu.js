@@ -49,7 +49,7 @@ const menus = [
     {
         id: 2,
         name: 'Explore',
-        links: '/explore-04',
+        links: '/generativetokens',
         // namesub: [
         //     {
         //         id: 1,

@@ -90,7 +90,7 @@ const Ranking = () => {
             <section className="tf-explore tf-section">
             <div className="themesflat-container">
                 <div className="row">
-                    <div className="col-xl-3 col-lg-3 col-md-12">
+                    <div className="tf-explore tf-section col-xl-3 col-lg-3 col-md-12">
                         <div id="side-bar" className="side-bar style-3">
                             {
                                 widgetSidebarData.map((item,index) => (
