@@ -15,6 +15,9 @@ import Web3Modal from 'web3modal'
 import Marketplace from '../abi/Marketplace.json'
 import GeneratorList from '../components/layouts/home-4/GeneratorList';
 import todayPickData from '../assets/fake-data/data-today-pick';
+import Explore from '../components/layouts/explore-04/Explore';
+import widgetSidebarData from '../assets/fake-data/data-widget-sidebar'
+import { Accordion } from 'react-bootstrap';
 
 
 const Ranking = () => {
@@ -63,7 +66,7 @@ const Ranking = () => {
     }, []);    
 
     return (
-        <div>
+        <div> 
             <Header />
             <section className="flat-title-page inner">
                 <div className="overlay"></div>
@@ -71,22 +74,57 @@ const Ranking = () => {
                     <div className="row">
                         <div className="col-md-12">
                             <div className="page-title-heading mg-bt-12">
-                                <h1 className="heading text-center">Collections</h1>
+                                <h1 className="heading text-center">Explore Marketplace</h1>
                             </div>
-                            <div className="breadcrumbs style2">
+                            {/* <div className="breadcrumbs style2">
                                 <ul>
                                     <li><Link to="/">Home</Link></li>
-                                    <li><Link to="#">Pages</Link></li>
-                                    <li>Collections</li>
+                                    <li><Link to="#">Explore</Link></li>
+                                    <li>Explore 4</li>
                                 </ul>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </div>                    
             </section>
-            <section className="tf-section tf-rank">                
-                <GeneratorList data={gts} />
-            </section>
+            <section className="tf-explore tf-section">
+            <div className="themesflat-container">
+                <div className="row">
+                    <div className="col-xl-3 col-lg-3 col-md-12">
+                        <div id="side-bar" className="side-bar style-3">
+                            {
+                                widgetSidebarData.map((item,index) => (
+                                    <div className="widget widget-category mgbt-24 boder-bt" key={index}>
+                                        <div className="content-wg-category">
+                                            <Accordion title={item.title} show={true}>
+                                                <form action="#">
+                                                    {
+                                                        item.content.map((itemm , index) => (
+                                                            <div key={index}>
+                                                                <label>{itemm.field}
+                                                                    <input type="checkbox" defaultChecked={itemm.checked} />
+                                                                    <span className="btn-checkbox"></span>
+                                                                </label><br/>
+                                                            </div>
+                                                        ))
+                                                    }                                            
+                                                </form>
+                                            </Accordion>
+                                        </div>
+                                    </div>
+                                ))
+                            }
+                        </div>
+                    </div>
+                    
+                    <div className="col-xl-9 col-lg-9 col-md-12">
+                        <GeneratorList data={gts} />
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+            
             <Footer />
         </div>
     );
