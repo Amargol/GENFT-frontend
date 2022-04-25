@@ -153,11 +153,10 @@ const CreateItem = () => {
     // }
 
     return (
-        <div className='create-item'>
+        <div style={{width: '100%'}} className='create-item'>
             
 
-            <div className="tf-create-item tf-section">
-                <div className="themesflat-container">
+            <div style={{width: '100%'}} className="tf-create-item tf-section">
                     <div className="row">
                          {/* <div className="col-xl-3 col-lg-6 col-md-6 col-12">
                              <h4 className="title-create-item">Preview item</h4>
@@ -309,7 +308,6 @@ const CreateItem = () => {
                                         </TabPanel>
                                     </Tabs>
                                 </div>
-                             </div>
                          </div>
                     </div>
                 </div>
