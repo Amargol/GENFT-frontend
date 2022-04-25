@@ -15,7 +15,7 @@ const Wizard = () => {
     const data = ["Authorship", "Upload", "Check Files", "s4"]
 
     return (
-        <div className="tf-Create-item tf-section container">
+        <div style={{paddingLeft: 100, paddingRight: 100}} className="tf-Create-item tf-section">
             <div style={{display: 'flex', justifyContent: 'space-between', flexStart: 'start'}}>
                 {
                 data.map((item,index) => {
@@ -38,15 +38,16 @@ const Wizard = () => {
                 })
                 }
             </div>
+            <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
                 {
                     data.map((item,index) => {
                     if (index === step && index === 0) {
                         return (
-                            <Authorship/>
+                            <Authorship next={() => setStep(step+1)}/>
                         )
                     } else if (index === step && index === 1) {
                         return (
-                            <IPFSAdd/>
+                            <IPFSAdd next={() => setStep(step+1)}/>
                         )
                     } else if (index === step && index === 2) {
                         return (
@@ -60,7 +61,8 @@ const Wizard = () => {
                     
                 })
                 }
-            <Button style={{fontSize: 22, paddingLeft: 20, paddingRight: 20}} onClick={() => setStep(step+1)}  variant="outline-primary">next step</Button>
+                </div>
+            {/* <Button style={{fontSize: 22, paddingLeft: 20, paddingRight: 20}} onClick={() => setStep(step+1)}  variant="outline-primary">next step</Button> */}
         </div>
     );
 }
