@@ -94,6 +94,7 @@ const Ranking = () => {
                         <div id="side-bar" className="side-bar style-3">
                             {
                                 widgetSidebarData.map((item,index) => (
+                                    
                                     <div className="widget widget-category mgbt-24 boder-bt" key={index}>
                                         <div className="content-wg-category">
                                             <Accordion title={item.title} show={true}>
