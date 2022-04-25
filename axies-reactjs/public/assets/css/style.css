@@ -1378,7 +1378,7 @@ header{
 
 .main-nav {
     position: absolute;
-    left:26%;
+    right:26%;
     top: 0;
     z-index: 0;
 }

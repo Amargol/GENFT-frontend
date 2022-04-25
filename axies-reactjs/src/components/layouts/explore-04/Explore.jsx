@@ -36,9 +36,10 @@ const Explore = props => {
                         </div>
                     </div>
                     
-                    <div className="col-xl-9 col-lg-9 col-md-12">
+                    {/* <div className="col-xl-9 col-lg-9 col-md-12">
                         <ExploreItem data={todayPickData} />
-                    </div>
+                    </div> */}
+                    
                 </div>
             </div>
         </section>

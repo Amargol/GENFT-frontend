@@ -154,26 +154,8 @@ const CreateItem = () => {
 
     return (
         <div className='create-item'>
-            <Header />
-            <section className="flat-title-page inner">
-                <div className="overlay"></div>
-                <div className="themesflat-container">
-                    <div className="row">
-                        <div className="col-md-12">
-                            <div className="page-title-heading mg-bt-12">
-                                <h1 className="heading text-center">Create Item</h1>
-                            </div>
-                            <div className="breadcrumbs style2">
-                                <ul>
-                                    <li><Link to="/">Home</Link></li>
-                                    <li><Link to="#">Pages</Link></li>
-                                    <li>Create Item</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>                    
-            </section>
+            
+
             <div className="tf-create-item tf-section">
                 <div className="themesflat-container">
                     <div className="row">
@@ -332,13 +314,14 @@ const CreateItem = () => {
                     </div>
                 </div>
             </div>
-            <Footer />
             
             <PreviewModal
                 show={modalShow}
                 cid={cidGen}
                 onHide={() => setModalShow(false)}
                 />
+
+
             
         </div>
     );

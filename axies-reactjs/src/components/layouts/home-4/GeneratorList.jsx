@@ -33,7 +33,7 @@ const TodayPicks = props => {
                         </div>
                         {
                             data.slice(0,visible).map((item,index) => (
-                                <div key={index} className="fl-item col-xl-3 col-lg-4 col-md-6 col-sm-6">
+                                <div key={index} className="fl-item col-xl-4 col-lg-4 col-md-6 col-sm-6">
                                     <div className={`sc-card-product menu_card style2 ${true ? 'comingsoon' : '' } `}>
                                         {/* <div className="meta-info style">
                                             <div className="author">

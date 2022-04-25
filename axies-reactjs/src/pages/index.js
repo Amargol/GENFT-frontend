@@ -32,10 +32,11 @@ import NoResult from "./NoResult";
 import FAQ from "./FAQ";
 import Contact01 from "./Contact01";
 import Contact02 from "./Contact02";
+import CreateItemPage from "./CreateItemPage";
 
 
 const routes = [
-  { path: '/', component: <Home01 />},
+  { path: '/', component: <Home07 />},
   { path: '/home-02', component: <Home02 />},
   { path: '/home-03', component: <Home03 />},
   { path: '/home-04', component: <Home04 />},
@@ -59,7 +60,7 @@ const routes = [
   { path: '/authors-01', component: <Authors01 />},
   { path: '/authors-02', component: <Authors02 />},
   { path: '/wallet-connect', component: <WalletConnect />},
-  { path: '/create-item', component: <CreateItem />},
+  { path: '/create-item', component: <CreateItemPage />},
   { path: '/edit-profile', component: <EditProfile />},
   { path: '/ranking', component: <Ranking />},
   { path: '/GenerativeTokens', component: <GenerativeTokens />},
