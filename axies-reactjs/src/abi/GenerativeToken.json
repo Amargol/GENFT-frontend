@@ -317,6 +317,11 @@
 					},
 					{
 						"internalType": "string",
+						"name": "baseSiteURI",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
 						"name": "name",
 						"type": "string"
 					},
@@ -344,6 +349,36 @@
 				"internalType": "struct GenerativeTokenInfo",
 				"name": "",
 				"type": "tuple"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getIterations",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "tokenURI",
+						"type": "string"
+					},
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					}
+				],
+				"internalType": "struct TokenInfo[]",
+				"name": "",
+				"type": "tuple[]"
 			}
 		],
 		"stateMutability": "view",

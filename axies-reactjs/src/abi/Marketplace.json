@@ -63,6 +63,49 @@
 	{
 		"inputs": [
 			{
+				"internalType": "string",
+				"name": "name",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "description",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "baseURI",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "seed",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "maxSupply",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "price",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "royaltyRate",
+				"type": "uint256"
+			}
+		],
+		"name": "mintGT",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
 				"internalType": "uint256",
 				"name": "",
 				"type": "uint256"
@@ -93,6 +136,11 @@
 					{
 						"internalType": "string",
 						"name": "imgUri",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "baseSiteURI",
 						"type": "string"
 					},
 					{
@@ -140,49 +188,6 @@
 			}
 		],
 		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "name",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "description",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "baseURI",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "seed",
-				"type": "string"
-			},
-			{
-				"internalType": "uint256",
-				"name": "maxSupply",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "price",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "royaltyRate",
-				"type": "uint256"
-			}
-		],
-		"name": "mintGT",
-		"outputs": [],
-		"stateMutability": "nonpayable",
 		"type": "function"
 	}
 ]

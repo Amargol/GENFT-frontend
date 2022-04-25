@@ -104,7 +104,7 @@ const MintToken = () => {
         const signer = provider.getSigner();
         const contract = new ethers.Contract(tokenAddress, GenerativeToken, signer)
 
-        const marketplaceContract = new ethers.Contract("0xA73B8Bd084dcFd0DDA40Fcf500a82ec71ea7d74D", Marketplace, signer)
+        const marketplaceContract = new ethers.Contract("0xeC11bc29bE96dcaB7590D4e90a1d366C0c394c15", Marketplace, signer)
 
         tokenContract.current = contract
         marketplaceContract.current = marketplaceContract
@@ -118,19 +118,33 @@ const MintToken = () => {
           navigate('/no-result')
         }
 
-        const data = await marketplaceContract.getGenerativeTokens()
+        let data = await contract.getIterations()
 
-        let res = []
+        let gts = []
+        gts = data.map(async (tokenInfo) => {
+          const response = await fetch(tokenInfo.tokenURI);
+          const json = await response.json();
+          return {
+            tokenId: tokenInfo.tokenId,
+            metadata: json,
+            owner: tokenInfo.owner
+          }
+        })
+        gts = await Promise.all(gts)
 
-        for (let i = data.length - 1; i >= 0; i--) {
-            res.push(data[i])
-        }
+        // let res = []
 
-        res = data.slice(0, 2)
+        // for (let i = data.length - 1; i >= 0; i--) {
+        //     res.push(data[i])
+        // }
 
-        setGts(res)
+        // res = data.slice(0, 2)
 
-        console.log(tokenInfo)
+        console.log("under here")
+        console.log(gts)
+        console.log("above here")
+
+        setGts(gts)
       }
       
       initialize()
