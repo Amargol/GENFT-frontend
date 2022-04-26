@@ -78,7 +78,7 @@ const TodayPicks = props => {
                                             <div className="tags">{item.curSupply + "/" + item.maxSupply}</div>
                                         </div>
                                         <div className={"progress"} style={{height: "10px", marginBottom: "15px", backgroundColor: "var(--progress-color)"}} >
-                                          <div className="b" role="progressbar" style={{"width": "25%", "backgroundColor": "var(--primary-color3)"}}></div>
+                                          <div className="b" role="progressbar" style={{"width": item.curSupply.mul(100).div(item.maxSupply) + "%", "backgroundColor": "var(--primary-color3)"}}></div>
                                         </div>
                                         <div className="meta-info">
                                             <div className="author">
