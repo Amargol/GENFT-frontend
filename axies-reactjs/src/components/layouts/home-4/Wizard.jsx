@@ -3,7 +3,9 @@ import { useState } from 'react';
 import { Button } from 'react-bootstrap';
 import CreateItem from '../../../pages/CreateItem';
 import Authorship from './Authorship';
+import CapturePreview from './CapturePreview';
 import CheckFiles from './CheckFiles';
+import Contract from './Contract';
 import IPFSAdd from './IPFSAdd';
 import Trigger from './Trigger';
 
@@ -13,7 +15,7 @@ const Wizard = () => {
 
     const [step, setStep] = useState(0)
 
-    const data = ["Authorship", "Upload", "Check Files", "Trigger", "Mint"]
+    const data = ["Authorship", "Upload", "Check Files", "Trigger", "Capture Preview", "Contract", "Info", "Publish"]
 
     return (
         <div style={{paddingLeft: 100, paddingRight: 100}} className="tf-Create-item tf-section">
@@ -56,7 +58,15 @@ const Wizard = () => {
                         )
                     } else if (index === step && index === 3) {
                         return (
-                            <Trigger/>
+                            <Trigger next={() => setStep(step+1)}/>
+                        )
+                    } else if (index === step && index === 4) {
+                        return (
+                            <CapturePreview next={() => setStep(step+1)}/>
+                        )
+                    } else if (index === step && index === 5) {
+                        return (
+                            <Contract next={() => setStep(step+1)}/>
                         )
                     } else {
                         return (
