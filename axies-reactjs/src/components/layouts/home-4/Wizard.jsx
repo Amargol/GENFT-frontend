@@ -5,6 +5,7 @@ import CreateItem from '../../../pages/CreateItem';
 import Authorship from './Authorship';
 import CheckFiles from './CheckFiles';
 import IPFSAdd from './IPFSAdd';
+import Trigger from './Trigger';
 
 //create a component called wizard that is a react step
 
@@ -12,7 +13,7 @@ const Wizard = () => {
 
     const [step, setStep] = useState(0)
 
-    const data = ["Authorship", "Upload", "Check Files", "s4"]
+    const data = ["Authorship", "Upload", "Check Files", "Trigger", "Mint"]
 
     return (
         <div style={{paddingLeft: 100, paddingRight: 100}} className="tf-Create-item tf-section">
@@ -51,7 +52,11 @@ const Wizard = () => {
                         )
                     } else if (index === step && index === 2) {
                         return (
-                            <CheckFiles/>
+                            <CheckFiles next={() => setStep(step+1)}/>
+                        )
+                    } else if (index === step && index === 3) {
+                        return (
+                            <Trigger/>
                         )
                     } else {
                         return (
