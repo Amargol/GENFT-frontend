@@ -26,7 +26,7 @@ const TodayPicks = props => {
                         <div className="col-md-12">
                             <div className="heading-live-auctions mg-bt-21">
                                 <h2 className="tf-title pad-l-7">
-                                    Gallery:
+                                    Gallery
                                 </h2>
                                 <Link to="/explore-03" className="exp style2">EXPLORE MORE</Link>
                             </div>
@@ -68,7 +68,7 @@ const TodayPicks = props => {
                                         <div className="card-media">
                                             {/* <Link to="/item-details-01"><img src={"https://www.dictionary.com/e/wp-content/uploads/2018/05/100_800x800-300x300.png"} alt="Axies" /></Link> */}
                                             <div style={{width: '100%', display: 'flex', justifyContent: 'space-around'}}>
-                                                <iframe src={"http://35.232.44.3:8080/ipfs/QmQ5nusUzBAeS3YGBnYroimd2jcQRYXvDZMj9c72D83Hxn"}  height="300" width="300" title="IPFS Frame"></iframe>
+                                                <iframe src={item.metadata.image}  height="300" width="300" title="IPFS Frame"></iframe>
                                             </div>
                                             {/* <Link to="/login" className="wishlist-button heart"><span className="number-like">{"item.wishlist"}</span></Link> */}
                                             {/* <div className="coming-soon">{"item.feature"}</div> */}
@@ -87,14 +87,14 @@ const TodayPicks = props => {
                                                 </div>
                                                 <div className="info">
                                                     <span>Owned By</span>
-                                                    <h6> <Link to="/author-02">{"Shreyas"}</Link> </h6>
+                                                    <h6> <Link to="/author-02">{item.owner.slice(0, 18) + "..."}</Link> </h6>
                                                 </div>
                                             </div>
                                             <div className="price">
-                                                <span>Current Bid</span>
+                                                <span>Token ID</span>
                                                 <div style={{display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "end"}}>
-                                                  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="2em" height="1.5em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 320 512"><path fill="currentColor" d="M311.9 260.8L160 353.6L8 260.8L160 0l151.9 260.8zM160 383.4L8 290.6L160 512l152-221.4l-152 92.8z"/></svg>
-                                                  <h5 style={{marginTop: "0px"}}>{item.price.toString()}</h5>
+                                                  {/* <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="2em" height="1.5em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 320 512"><path fill="currentColor" d="M311.9 260.8L160 353.6L8 260.8L160 0l151.9 260.8zM160 383.4L8 290.6L160 512l152-221.4l-152 92.8z"/></svg> */}
+                                                  <h5 style={{marginTop: "0px"}}>#{item.tokenId.toString()}</h5>
                                                 </div>
                                             </div>
                                         </div>                                        
