@@ -64,7 +64,25 @@ const Contract = (props) => {
                         </Button>
                     </div>
 
-                        <h3 style={{marginTop: 50}}>Price</h3>
+                        <h3 style={{marginTop: 50}}>Listing Price</h3>
+                        <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 10}}>
+                            <TextField style={{ width: "100%"}} placeholder="Hash" value={"#"} ></TextField>
+                            <h3 style={{width: 100, textAlign: 'right'}}>TEZ</h3>
+                        </div>
+
+                        <h3 style={{marginTop: 50}}>Primary Royalties</h3>
+                        <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 10}}>
+                            <TextField style={{ width: "100%"}} placeholder="Hash" value={"#"} ></TextField>
+                            <h3 style={{width: 100, textAlign: 'right'}}>TEZ</h3>
+                        </div>
+
+                        <h3 style={{marginTop: 50}}>Secondary Royalties</h3>
+                        <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 10}}>
+                            <TextField style={{ width: "100%"}} placeholder="Hash" value={"#"} ></TextField>
+                            <h3 style={{width: 100, textAlign: 'right'}}>TEZ</h3>
+                        </div>
+
+                        <h3 style={{marginTop: 50}}>Reserves</h3>
                         <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 10}}>
                             <TextField style={{ width: "100%"}} placeholder="Hash" value={"#"} ></TextField>
                             <h3 style={{width: 100, textAlign: 'right'}}>TEZ</h3>

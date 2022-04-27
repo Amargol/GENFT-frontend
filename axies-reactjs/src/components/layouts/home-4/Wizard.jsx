@@ -6,6 +6,7 @@ import Authorship from './Authorship';
 import CapturePreview from './CapturePreview';
 import CheckFiles from './CheckFiles';
 import Contract from './Contract';
+import Info from './Info';
 import IPFSAdd from './IPFSAdd';
 import Trigger from './Trigger';
 
@@ -67,6 +68,10 @@ const Wizard = () => {
                     } else if (index === step && index === 5) {
                         return (
                             <Contract next={() => setStep(step+1)}/>
+                        )
+                    } else if (index === step && index === 6) {
+                        return (
+                            <Info next={() => setStep(step+1)}/>
                         )
                     } else {
                         return (
