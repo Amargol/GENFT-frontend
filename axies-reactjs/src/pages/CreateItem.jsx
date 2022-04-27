@@ -94,7 +94,7 @@ const CreateItem = () => {
           
                 const provider = new ethers.providers.Web3Provider(instance);
                 const signer = provider.getSigner();
-                const contract = new ethers.Contract("0xeC11bc29bE96dcaB7590D4e90a1d366C0c394c15", Marketplace, signer)
+                const contract = new ethers.Contract("0x49369BD965454436F3b0E93F0c9112a545cda1c6", Marketplace, signer)
 
                 const seed = Math.floor(Math.random() * 1000000000).toString();
                 
