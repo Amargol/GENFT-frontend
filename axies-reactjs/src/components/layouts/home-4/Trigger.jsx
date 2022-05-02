@@ -1,19 +1,34 @@
 import { MenuItem, Select, Slider, styled, TextField } from '@mui/material';
-import { useState } from 'react';
-import {react} from 'react';
+import {react, useState} from 'react';
 import { Button, InputGroup, FormControl } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const Trigger = (props) => {
 
-    const [cidGen, setcidGen] = useState("Qmd286K6pohQcTKYqnS1YhWrCiS4gz7Xi34sdwMe9USZ7u");
-    const [seed, setSeed] = useState("Qmd286K6pohQcTKYqnS1YhWrCiS4gz7Xi34sdwMe9USZ7u")
+    const [time, setTime] = useState('');
+    const [target, setTarget] = useState('');
+    const [cssSelector, setCssSelector] = useState('');
 
-    const [age, setAge] = useState('');
+    const handleSliderChange = (event, newValue) => {
+        setTime(newValue);  
+        console.log(newValue);
+      };
 
     const handleChange = (event) => {
-        setAge(event.target.value);
+        setTarget(event.target.value);
     };
+
+    const handleTextChange = (event) => {
+        setCssSelector(event.target.value);
+    };
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        props.setTime(time);
+        props.setTarget(target);
+        props.setCssSelector(cssSelector);
+        props.next()
+    }
 
     const PrettoSlider = styled(Slider)({
         color: '#52af77',
@@ -54,16 +69,6 @@ const Trigger = (props) => {
         },
       });
 
-
-    const makeHash = () => {
-        //make 20 digit random numbers
-        var hash = "";
-        for (var i = 0; i < 20; i++) {
-            hash += Math.floor(Math.random() * 10);
-        }
-        setSeed(hash);
-    }
-
     return (
         <div className="tf-create-item tf-section" style={{width: '100%'}}>
                 <div className="">
@@ -78,6 +83,8 @@ const Trigger = (props) => {
                                 valueLabelDisplay="auto"
                                 aria-label="pretto slider"
                                 defaultValue={20}
+                                value={typeof time === 'number' ? time : 0}
+                                onChange={handleSliderChange}
                             />
                             <h3 style={{width: 100, textAlign: 'right'}}>1.0 s</h3>
                         </div>
@@ -86,25 +93,25 @@ const Trigger = (props) => {
                         <h4 style={{fontWeight: 'normal'}}>What will be the target of the capture module?</h4>
                         <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 30}}>
                         <Select
-                            value={age}
+                            value={target}
                             onChange={handleChange}
                             displayEmpty
                             inputProps={{ 'aria-label': 'Without label' }}
                             style={{width: '100%', fontSize: 18}}
                             >
-                            <MenuItem value={10}>Canvas</MenuItem>
-                            <MenuItem value={20}>ViewPort</MenuItem>
+                            <MenuItem value={'canvas'}>Canvas</MenuItem>
+                            <MenuItem value={'ViewPort'}>ViewPort</MenuItem>
                         </Select>
                         </div>
 
                         <h3 style={{marginTop: 30}}>Canvas CSS Selector</h3>
                         <h4 style={{fontWeight: 'normal', marginTop: 10}}>A CSS Selector that targets the canvas on which your graphics are rendered</h4>
-                        <TextField style={{marginTop: 20, width: "100%"}} placeholder="Hash" value={"#"} ></TextField>
+                        <TextField style={{marginTop: 20, width: "100%"}} onChange={handleTextChange}  placeholder="Hash" ></TextField>
 
                     </div>
 
                     <div className="col-xl-6 col-lg-6 col-md-6 col-12" style={{width:'100%', padding: 0, marginTop: 30, display: 'flex', flexDirection: 'row-reverse'}}>
-                        <iframe src={"http://35.232.44.3:8080/ipfs/QmTJL14kceNbrAtmbD5PhBbFPHUJA2XvUZZZCoQdjmDUKN/?seed=" + seed}  height="600" width="600" title="IPFS Frame"></iframe>
+                        <iframe src={"http://35.193.145.29:8080/ipfs/" + props.cid + "/?seed="}  height="600" width="600" title="IPFS Frame"></iframe>
                     </div>
                    
                     </div>
@@ -112,7 +119,7 @@ const Trigger = (props) => {
                 </div>
 
                 <div style={{display: 'flex', justifyContent: 'center', marginTop: 30}}>
-                    <Button style={{fontSize: 22, paddingLeft: 20, paddingRight: 20}} onClick={props.next} variant="outline-primary">next step</Button>
+                    <Button style={{fontSize: 22, paddingLeft: 20, paddingRight: 20}} onClick={handleSubmit} variant="outline-primary">next step</Button>
                 </div>
            
         </div>
