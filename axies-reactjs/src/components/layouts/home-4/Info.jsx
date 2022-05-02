@@ -12,6 +12,44 @@ const Info = (props) => {
 
     const [age, setAge] = useState('');
 
+    const [name, setName] = useState("")
+    const [description, setDescription] = useState("")
+    //set state for tags
+    const [tags, setTags] = useState([]);
+    //set state for labels
+    const [labels, setLabels] = useState([]);
+
+    //create a function called handleName that takes in an event and sets state appropriately
+    const handleName = (event) => {
+        setName(event.target.value);
+    };
+
+    //create a function called handleDescription that takes in an event and sets state appropriately
+    const handleDescription = (event) => {
+        setDescription(event.target.value);
+    };
+
+    //create a function called handleTags that takes in an event and splits the tags by comma and sets the state to the array
+    const handleChangeTags = (event) => {
+        setTags(event.target.value.split(","));
+    }
+
+    //create a function called handleChangeLabels that takes in an event and splits the labels by comma and sets the state to the array
+    const handleChangeLabels = (event) => {
+        setLabels(event.target.value.split(","));
+    }
+
+    //create a function called handleSubmit that takes in an event and calls the props.next function
+    const handleSubmit = (event) => {
+        props.setName(name)
+        props.setDescription(description)
+        props.setTags(tags)
+        props.setLabels(labels)
+        props.next()
+    };
+    
+
+
     const handleChange = (event) => {
         setAge(event.target.value);
     };
@@ -42,7 +80,7 @@ const Info = (props) => {
                         <div className="" style={{ padding: 0, marginTop: 50,  width: 900,}}>
                             <h3 style={{marginBottom: 10}}>Name of Piece</h3>
                             <h4 style={{fontWeight: 'normal'}}>" #N" will be added to minted pieces</h4>
-                            <TextField style={{marginTop: 20, width: "100%"}} placeholder="Collection Name" ></TextField>
+                            <TextField onChange={handleName} style={{marginTop: 20, width: "100%"}} placeholder="Collection Name" ></TextField>
                         </div>
                     </div>
 
@@ -50,7 +88,7 @@ const Info = (props) => {
                         <div className="" style={{ padding: 0, marginTop: 50,  width: 900,}}>
                             <h3 style={{marginBottom: 10}}>Descripton of Collection</h3>
                             <h4 style={{fontWeight: 'normal'}}>Give your collection a cool description nerd</h4>
-                            <TextField style={{marginTop: 20, width: "100%"}} placeholder="Collection Description" ></TextField>
+                            <TextField onChange={handleDescription} style={{marginTop: 20, width: "100%"}} placeholder="Collection Description" ></TextField>
                         </div>
                     </div>
 
@@ -58,7 +96,7 @@ const Info = (props) => {
                         <div className="" style={{ padding: 0, marginTop: 50,  width: 900,}}>
                             <h3 style={{marginBottom: 10}}>Tags</h3>
                             <h4 style={{fontWeight: 'normal'}}>Comma-seperated values (used to enhance searcj results)</h4>
-                            <TextField style={{marginTop: 20, width: "100%"}} placeholder="Collection Tags" ></TextField>
+                            <TextField onChange={handleChangeTags} style={{marginTop: 20, width: "100%"}} placeholder="Collection Tags" ></TextField>
                         </div>
                     </div>
 
@@ -66,7 +104,7 @@ const Info = (props) => {
                         <div className="" style={{ padding: 0, marginTop: 50,  width: 900,}}>
                             <h3 style={{marginBottom: 10}}>Labels</h3>
                             <h4 style={{fontWeight: 'normal'}}>Comma-seperated values (used to enhance searcj results)</h4>
-                            <TextField style={{marginTop: 20, width: "100%"}} placeholder="Collection Labels" ></TextField>
+                            <TextField onChange={handleChangeLabels} style={{marginTop: 20, width: "100%"}} placeholder="Collection Labels" ></TextField>
                         </div>
                     </div>
 
@@ -74,7 +112,7 @@ const Info = (props) => {
                 </div>
 
                 <div style={{display: 'flex', justifyContent: 'center', marginTop: 30}}>
-                    <Button style={{fontSize: 22, paddingLeft: 20, paddingRight: 20}} onClick={props.next} variant="outline-primary">next step</Button>
+                    <Button style={{fontSize: 22, paddingLeft: 20, paddingRight: 20}} onClick={handleSubmit} variant="outline-primary">next step</Button>
                 </div>
            
         </div>

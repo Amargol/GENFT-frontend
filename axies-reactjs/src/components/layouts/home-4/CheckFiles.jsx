@@ -1,14 +1,17 @@
 import { TextField } from '@mui/material';
 import { useState } from 'react';
+import { useEffect } from 'react';
 import {react} from 'react';
 import { Button, InputGroup, FormControl } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const CheckFiles = (props) => {
-
-    const [cidGen, setcidGen] = useState("Qmd286K6pohQcTKYqnS1YhWrCiS4gz7Xi34sdwMe9USZ7u");
     const [seed, setSeed] = useState("Qmd286K6pohQcTKYqnS1YhWrCiS4gz7Xi34sdwMe9USZ7u")
 
+    useEffect( () => {
+
+        console.log("http://35.193.145.29:8080/ipfs/" + props.cid + "/?seed=" + seed)
+    })
 
 
     const makeHash = () => {
@@ -18,6 +21,11 @@ const CheckFiles = (props) => {
             hash += Math.floor(Math.random() * 10);
         }
         setSeed(hash);
+    }
+
+    const onSubmit = () => {
+        props.setFilesChecked(true);
+        props.next();
     }
 
     return (
@@ -53,7 +61,7 @@ const CheckFiles = (props) => {
                     </div>
 
                     <div className="col-xl-6 col-lg-6 col-md-6 col-12" style={{width:'100%', padding: 0, marginTop: 30, display: 'flex', flexDirection: 'row-reverse'}}>
-                        <iframe src={"http://35.232.44.3:8080/ipfs/QmTJL14kceNbrAtmbD5PhBbFPHUJA2XvUZZZCoQdjmDUKN/?seed=" + seed}  height="600" width="600" title="IPFS Frame"></iframe>
+                        <iframe src={"http://35.193.145.29:8080/ipfs/" + props.cid + "/?seed=" + seed}  height="600" width="600" title="IPFS Frame"></iframe>
                     </div>
                    
                     </div>
@@ -61,7 +69,7 @@ const CheckFiles = (props) => {
                 </div>
 
                 <div style={{display: 'flex', justifyContent: 'center', marginTop: 30}}>
-                    <Button style={{fontSize: 22, paddingLeft: 20, paddingRight: 20}} onClick={props.next} variant="outline-primary">next step</Button>
+                    <Button style={{fontSize: 22, paddingLeft: 20, paddingRight: 20}} onClick={onSubmit} variant="outline-primary">next step</Button>
                 </div>
            
         </div>
