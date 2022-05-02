@@ -6,16 +6,49 @@ import { EmojiKissFill, People } from 'react-bootstrap-icons';
 import { Link } from 'react-router-dom';
 
 const Contract = (props) => {
-
-    const [cidGen, setcidGen] = useState("Qmd286K6pohQcTKYqnS1YhWrCiS4gz7Xi34sdwMe9USZ7u");
     const [seed, setSeed] = useState("Qmd286K6pohQcTKYqnS1YhWrCiS4gz7Xi34sdwMe9USZ7u")
 
-    const [age, setAge] = useState('');
+    const [numEditions, setNumEditions] = useState("")
+    const [pricingMethod, setPricingMethod] = useState("Fixed Price")
+    const [listingPrice, setListingPrice] = useState("")
+    const [primaryRoyalty, setPrimaryRoyalty] = useState("")
+    const [secondaryRoyalty, setSecondaryRoyalty] = useState("")
+    const [reserve, setReserve] = useState("")
 
-    const handleChange = (event) => {
-        setAge(event.target.value);
+    const handleSubmit = (event) => {
+        props.setNumEditions(numEditions)
+        props.setPricingMethod(pricingMethod)
+        props.setListingPrice(listingPrice)
+        props.setPrimaryRoyalty(primaryRoyalty)
+        props.setSecondaryRoyalty(secondaryRoyalty)
+        props.setReserve(reserve)
+        props.next()
     };
 
+
+    const handleChange1 = (event) => {
+        setNumEditions(event.target.value);
+    };
+
+    const handleChange2 = (event) => {
+        setPricingMethod(event.target.value);
+    };
+
+    const handleChange3 = (event) => {
+        setListingPrice(event.target.value);
+    };
+
+    const handleChange4 = (event) => {
+        setPrimaryRoyalty(event.target.value);
+    };
+
+    const handleChange5 = (event) => {
+        setSecondaryRoyalty(event.target.value);
+    };
+
+    const handleChange6 = (event) => {
+        setReserve(event.target.value);
+    };
 
     const makeHash = () => {
         //make 20 digit random numbers
@@ -43,7 +76,7 @@ const Contract = (props) => {
 
                         <h3 style={{marginBottom: 10}}>Number of editions</h3>
                         <h4 style={{fontWeight: 'normal'}}>How many NFTs can be generated using your token - <b>can only be decreased after publication</b></h4>
-                        <TextField style={{marginTop: 20, width: "100%"}} placeholder="Hash" value={"#"} ></TextField>
+                        <TextField style={{marginTop: 20, width: "100%"}} onChange={handleChange1} placeholder="Hash" value={"#"} ></TextField>
 
                         <h3 style={{marginBottom: 10, marginTop: 50}}>Pricing Method</h3>
                         <h4 style={{fontWeight: 'normal'}}>You will not be able to update the pricing method after publication, only update it's pricing settings</h4>
@@ -66,25 +99,25 @@ const Contract = (props) => {
 
                         <h3 style={{marginTop: 50}}>Listing Price</h3>
                         <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 10}}>
-                            <TextField style={{ width: "100%"}} placeholder="Hash" value={"#"} ></TextField>
+                            <TextField style={{ width: "100%"}} onChange={handleChange3} placeholder="Hash" value={"#"} ></TextField>
                             <h3 style={{width: 100, textAlign: 'right'}}>TEZ</h3>
                         </div>
 
                         <h3 style={{marginTop: 50}}>Primary Royalties</h3>
                         <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 10}}>
-                            <TextField style={{ width: "100%"}} placeholder="Hash" value={"#"} ></TextField>
+                            <TextField style={{ width: "100%"}} placeholder="Hash" onChange={handleChange4} value={"#"} ></TextField>
                             <h3 style={{width: 100, textAlign: 'right'}}>TEZ</h3>
                         </div>
 
                         <h3 style={{marginTop: 50}}>Secondary Royalties</h3>
                         <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 10}}>
-                            <TextField style={{ width: "100%"}} placeholder="Hash" value={"#"} ></TextField>
+                            <TextField style={{ width: "100%"}} placeholder="Hash" onChange={handleChange5} value={"#"} ></TextField>
                             <h3 style={{width: 100, textAlign: 'right'}}>TEZ</h3>
                         </div>
 
                         <h3 style={{marginTop: 50}}>Reserves</h3>
                         <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 10}}>
-                            <TextField style={{ width: "100%"}} placeholder="Hash" value={"#"} ></TextField>
+                            <TextField style={{ width: "100%"}} placeholder="Hash" onChange={handleChange6} value={"#"} ></TextField>
                             <h3 style={{width: 100, textAlign: 'right'}}>TEZ</h3>
                         </div>
                         
@@ -96,7 +129,7 @@ const Contract = (props) => {
                 </div>
 
                 <div style={{display: 'flex', justifyContent: 'center', marginTop: 30}}>
-                    <Button style={{fontSize: 22, paddingLeft: 20, paddingRight: 20}} onClick={props.next} variant="outline-primary">next step</Button>
+                    <Button style={{fontSize: 22, paddingLeft: 20, paddingRight: 20}} onClick={handleSubmit} variant="outline-primary">next step</Button>
                 </div>
            
         </div>

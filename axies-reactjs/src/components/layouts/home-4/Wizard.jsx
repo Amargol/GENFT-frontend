@@ -15,6 +15,36 @@ import Trigger from './Trigger';
 const Wizard = () => {
 
     const [step, setStep] = useState(0)
+    const [cid, setCID] = useState("");
+    const [filesChecked, setFilesChecked] = useState(false);
+
+    const [time, setTime] = useState('');
+    const [target, setTarget] = useState('');
+    const [cssSelector, setCssSelector] = useState('');
+
+    const [numEditions, setNumEditions] = useState("")
+    const [pricingMethod, setPricingMethod] = useState("Fixed Price")
+    const [listingPrice, setListingPrice] = useState("")
+    const [primaryRoyalty, setPrimaryRoyalty] = useState("")
+    const [secondaryRoyalty, setSecondaryRoyalty] = useState("")
+    const [reserve, setReserve] = useState("")
+
+    const [name, setName] = useState("")
+    const [description, setDescription] = useState("")
+    const [tags, setTags] = useState([]);
+    const [labels, setLabels] = useState([]);
+
+
+
+
+
+    const dumbCID = (c) => {
+        console.log("cid dumb: ", c)
+        setCID(c)
+        console.log("cid dumb state: ", cid)
+    }
+
+
 
     const data = ["Authorship", "Upload", "Check Files", "Trigger", "Capture Preview", "Contract", "Info", "Publish"]
 
@@ -51,27 +81,27 @@ const Wizard = () => {
                         )
                     } else if (index === step && index === 1) {
                         return (
-                            <IPFSAdd next={() => setStep(step+1)}/>
+                            <IPFSAdd setCID={dumbCID} next={() => setStep(step+1)}/>
                         )
                     } else if (index === step && index === 2) {
                         return (
-                            <CheckFiles next={() => setStep(step+1)}/>
+                            <CheckFiles setFilesChecked={setFilesChecked} cid={cid} next={() => setStep(step+1)}/>
                         )
                     } else if (index === step && index === 3) {
                         return (
-                            <Trigger next={() => setStep(step+1)}/>
+                            <Trigger cid={cid} setTime={setTime} setTarget={setTarget} setCssSelector={setCssSelector} next={() => setStep(step+1)}/>
                         )
                     } else if (index === step && index === 4) {
                         return (
-                            <CapturePreview next={() => setStep(step+1)}/>
+                            <CapturePreview cid={cid} time={time} target={target} cssSelector={cssSelector} next={() => setStep(step+1)}/>
                         )
                     } else if (index === step && index === 5) {
                         return (
-                            <Contract next={() => setStep(step+1)}/>
+                            <Contract next={() => setStep(step+1)} setReserve={setReserve} setSecondaryRoyalty={setSecondaryRoyalty} setPrimaryRoyalty={setPrimaryRoyalty} setNumEditions={setNumEditions} setListingPrice={setListingPrice} setPricingMethod={setPricingMethod}  />
                         )
                     } else if (index === step && index === 6) {
                         return (
-                            <Info next={() => setStep(step+1)}/>
+                            <Info next={() => setStep(step+1)} setName={setName} setDescription={setDescription} setTags={setTags} setLabels={setLabels} />
                         )
                     } else {
                         return (
