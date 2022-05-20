@@ -8,10 +8,17 @@ import logodark from '../../assets/images/logo/logo_dark.png'
 import logodark2x from '../../assets/images/logo/logo_dark@2x.png'
 import imgsun from '../../assets/images/icon/sun.png'
 import avt from '../../assets/images/avatar/avt-2.jpg'
+import Web3Modal from 'web3modal'
+import { ethers } from 'ethers'
+
+import store from '../../store/store'
+
 
 
 const Header = () => {
     const { pathname } = useLocation();
+    const [buttonText, setButtonText] = useState('Connect Wallet');
+
 
     const headerRef = useRef (null)
     useEffect(() => {
@@ -44,6 +51,25 @@ const Header = () => {
     const handleOnClick = index => {
         setActiveIndex(index); 
     };
+
+    async function connect (e) {
+      e.preventDefault()
+
+      await store.connect()
+
+      let address = await store.getCurrentAddress()
+
+      setButtonText(address.slice(0, 10) + "...")
+    }
+
+    useEffect(async () => {
+      await store.connect()
+
+      let address = await store.getCurrentAddress()
+
+      console.log("hi")
+      setButtonText(address.slice(0, 10) + "...")
+    });
 
     return (
         <header id="header_main" className="header_1 js-header" ref={headerRef}>
@@ -102,7 +128,7 @@ const Header = () => {
                                         </div>
                                     </div>
                                     <div className="sc-btn-top mg-r-12" id="site-header">
-                                        <Link to="/wallet-connect" className="sc-button header-slider style style-1 wallet fl-button pri-1"><span>Wallet connect
+                                        <Link onClick={connect} to="/wallet-connect" className="sc-button header-slider style style-1 wallet fl-button pri-1"><span>{buttonText}
                                         </span></Link>
                                     </div>
 
