@@ -79,7 +79,7 @@ const Info = (props) => {
                     <div style={{display: 'flex', justifyContent: 'space-around', width: '100%'}}>
                         <div className="" style={{ padding: 0, marginTop: 50,  width: 900,}}>
                             <h3 style={{marginBottom: 10}}>Name of Piece</h3>
-                            <h4 style={{fontWeight: 'normal'}}>" #N" will be added to minted pieces</h4>
+                            <h4 style={{fontWeight: 'normal'}}>"#N" will be added to minted pieces</h4>
                             <TextField onChange={handleName} style={{marginTop: 20, width: "100%"}} placeholder="Collection Name" ></TextField>
                         </div>
                     </div>
@@ -103,7 +103,7 @@ const Info = (props) => {
                     <div style={{display: 'flex', justifyContent: 'space-around', width: '100%'}}>
                         <div className="" style={{ padding: 0, marginTop: 50,  width: 900,}}>
                             <h3 style={{marginBottom: 10}}>Labels</h3>
-                            <h4 style={{fontWeight: 'normal'}}>Comma-seperated values (used to enhance searcj results)</h4>
+                            <h4 style={{fontWeight: 'normal'}}>Comma-seperated values (used to enhance search results)</h4>
                             <TextField onChange={handleChangeLabels} style={{marginTop: 20, width: "100%"}} placeholder="Collection Labels" ></TextField>
                         </div>
                     </div>

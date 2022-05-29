@@ -65,13 +65,13 @@ const Contract = (props) => {
                         <div style={{display: 'flex', justifyContent: 'center', marginTop: 30}}>
                             <div>
                                 <h3 style={{marginBottom: 10, textAlign: 'center'}}>How will your piece be sold</h3>
-                                <h4 style={{fontWeight: 'normal', textAlign: 'center'}}>You will be able to modify these settings after publication, unless otherwise noted on corrosponding fields.</h4>
+                                <h4 style={{fontWeight: 'normal', textAlign: 'center'}}>You will not be able to modify these settings after publication.</h4>
                             </div>
                             
                         </div>
                         
                         
-                    <div style={{display: 'flex', justifyContent: 'space-between', width:'100%'}}>
+                    <div style={{display: 'flex', justifyContent: 'center', width:'100%'}}>
                         <div className="col-xl-6 col-lg-6 col-md-6 col-12" style={{ padding: 0, marginTop: 50}}>
 
                         <h3 style={{marginBottom: 10}}>Number of editions</h3>
@@ -80,7 +80,7 @@ const Contract = (props) => {
 
                         <h3 style={{marginBottom: 10, marginTop: 50}}>Pricing Method</h3>
                         <h4 style={{fontWeight: 'normal'}}>You will not be able to update the pricing method after publication, only update it's pricing settings</h4>
-                        <div style={{width: '100%', display: 'flex', justifyContent: 'space-between'}}>
+                        <div style={{width: '100%', display: 'flex', justifyContent: ''}}>
                         <Button style={{padding: 20, minWidth: 200, minHeight: 100, marginTop: 30}} active={true}  variant="outline-primary">
                             <div>
                                 <EmojiKissFill style={{fontSize: 30}}/>
