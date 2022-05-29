@@ -55,16 +55,16 @@ const Wizard = () => {
                 data.map((item,index) => {
                     if (index === step) {
                         return (
-                            <div style={{width: 100}}>
+                            <div style={{width: 100, textAlign: "center"}}>
                                 <h4 className="title-create-item">{item}</h4>
-                                <div style={{width: "100%", height: 10, backgroundColor: 'black'}}></div>
+                                <div style={{width: "100%", height: 5, backgroundColor: 'var(--primary-color2)'}}></div>
                             </div>
                         )
                     } else {
                         return (
-                            <div style={{width: 100, opacity: 0.2}}>
+                            <div style={{width: 100, opacity: 0.2, textAlign: "center"}}>
                                 <h4 className="title-create-item">{item}</h4>
-                                <div style={{width: "100%", height: 10, backgroundColor: 'black'}}></div>
+                                <div style={{width: "100%", height: 5, backgroundColor: 'var(--primary-color2)'}}></div>
                             </div>
                         )
                     }
