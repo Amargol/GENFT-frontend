@@ -46,7 +46,7 @@ const Wizard = () => {
 
 
 
-    const data = ["Authorship", "Upload", "Check Files", "Trigger", "Capture Preview", "Contract", "Info", "Publish"]
+    const data = ["Authorship", "Upload", "Check Files", "Trigger", "Preview", "Contract", "Info", "Publish"]
 
     return (
         <div style={{paddingLeft: 100, paddingRight: 100}} className="tf-Create-item tf-section">
