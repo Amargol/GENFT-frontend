@@ -35,7 +35,7 @@ const MintToken = () => {
       tokenAddress: "0xc2C36fCcB3ec68C6a376377433C43d39418D1890",
       imgUri: "https://picsum.photos/500/500",
       baseSiteURI: "https://picsum.photos/1000/1000",
-      name: "Generative Rectangles",
+      name: "Generative Boxes",
       description: "This artwork is procedurally generated using Javascript and stored entirely on chain",
       price: BigNumber.from("1"),
       maxSupply: BigNumber.from("20"),
