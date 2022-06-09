@@ -29,7 +29,7 @@ const MintToken = () => {
     const {tokenAddress} = useParams()
     const navigate = useNavigate()
 
-    let iframeWidth = window.innerWidth < 600 ? 400 : 690
+    let iframeWidth = window.innerWidth < 600 ? 370 : 690
 
     const [details, setDetails] = useState({
       tokenAddress: "0xc2C36fCcB3ec68C6a376377433C43d39418D1890",
@@ -41,6 +41,14 @@ const MintToken = () => {
       maxSupply: BigNumber.from("20"),
       curSupply: BigNumber.from("3")
     })
+
+    const [seed, setSeed] = useState("oo7N6gqMeM5WoYkRRZEzo9QD5D4FTfF8MyKgBwJ9r9GEMdAD22L")
+
+    var refreshSeed = () => {
+      let alphabet = "123456789abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ"
+      var fxhash = "oo" + Array(49).fill(0).map(_=>alphabet[(Math.random()*alphabet.length)|0]).join('')
+      setSeed(fxhash)    
+    }
     
     const [gts, setGts] = useState(
       [
@@ -318,7 +326,7 @@ const MintToken = () => {
                               <div className="content-left">
                                   <div className="media">
                                       <div style={{width: '100%', display: 'flex', justifyContent: 'space-around'}}>
-                                          <iframe src={"https://gateway.fxhash2.xyz/ipfs/QmUMfurjHWuFZ5zCBMpqd54dtCDrQ73nL2vr1Fz5anJ8ih/?fxhash=oo7N6gqMeM5WoYkRRZEzo9QD5D4FTfF8MyKgBwJ9r9GEMdAD22L"}  height={iframeWidth} width={iframeWidth} title="IPFS Frame"></iframe>
+                                          <iframe src={"https://gateway.fxhash2.xyz/ipfs/QmUMfurjHWuFZ5zCBMpqd54dtCDrQ73nL2vr1Fz5anJ8ih/?fxhash=" + seed}  height={iframeWidth} width={iframeWidth} title="IPFS Frame"></iframe>
                                       </div>
                                       <img src={imgdetail1} alt="Axies" />
                                   </div>
@@ -331,7 +339,7 @@ const MintToken = () => {
                                       <div className="meta-item">
                                           <div className="left">
                                               <span className="viewed eye">225</span>
-                                              <span to="/login" className="liked heart wishlist-button mg-l-8"><span className="number-like">100</span></span>
+                                              <span onClick={() => {refreshSeed()}} className="liked heart wishlist-button mg-l-8"><span className="number-like">100</span></span>
                                           </div>
                                           <div className="right">
                                               <Link to="#" className="share"></Link>
@@ -378,7 +386,7 @@ const MintToken = () => {
                                                   <span>You are good to go!</span>
                                               </Countdown> */}
                                               <div className="tags">
-                                                <h6> <a target={"_blank"} href="https://testnets.opensea.io/collection/bob-le8sw1ljyp">View In Etherscan</a> </h6>
+                                                <h6> <a target={"_blank"} href="https://rinkeby.etherscan.io/address/0x8fad4aa9b8fc933f2a234481904437396db3cb5a#code">View In Etherscan</a> </h6>
                                               </div>
                                               <span className="heading style-2"></span>
                                           </div>
