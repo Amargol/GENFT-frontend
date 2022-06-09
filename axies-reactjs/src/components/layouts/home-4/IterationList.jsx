@@ -7,6 +7,8 @@ import CardModal from '../CardModal';
 const TodayPicks = props => {
     const data = props.data;
 
+    console.log("SHR", data)
+
     const [visible , setVisible] = useState(8);
     const showMoreItems = () => {
         setVisible((prevValue) => prevValue + 4);
@@ -94,7 +96,7 @@ const TodayPicks = props => {
                                                 <span>Token ID</span>
                                                 <div style={{display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "end"}}>
                                                   {/* <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="2em" height="1.5em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 320 512"><path fill="currentColor" d="M311.9 260.8L160 353.6L8 260.8L160 0l151.9 260.8zM160 383.4L8 290.6L160 512l152-221.4l-152 92.8z"/></svg> */}
-                                                  <h5 style={{marginTop: "0px"}}>#{item.tokenId.toString()}</h5>
+                                                  <h5 style={{marginTop: "0px"}}>#{item.tokenID.toString()}</h5>
                                                 </div>
                                             </div>
                                         </div>                                        

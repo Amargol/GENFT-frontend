@@ -21,15 +21,11 @@ import Web3Modal from 'web3modal'
 import IterationList from '../components/layouts/home-4/IterationList';
 import GenerativeToken from '../abi/GenerativeToken.json'
 import Marketplace from '../abi/Marketplace.json'
-import axios from 'axios';
 
-// 0x0A87E5Aa5A1e33Fb29b4AdcC133ca5B6ca4B919C
 
 const MintToken = () => {
     const {tokenAddress} = useParams()
     const navigate = useNavigate()
-
-
 
     const [details, setDetails] = useState({
       tokenAddress: "0xc2C36fCcB3ec68C6a376377433C43d39418D1890",
@@ -43,164 +39,16 @@ const MintToken = () => {
     })
     
     const [gts, setGts] = useState(
-      [
-        {
-          "metadata": {
-            "attributes": [
-              {
-                "trait_type": "Base", 
-                "value": "Starfish"
-              }, 
-              {
-                "trait_type": "Eyes", 
-                "value": "Big"
-              }, 
-              {
-                "trait_type": "Mouth", 
-                "value": "Surprised"
-              }, 
-              {
-                "trait_type": "Level", 
-                "value": 5
-              }, 
-              {
-                "trait_type": "Stamina", 
-                "value": 1.4
-              }, 
-              {
-                "trait_type": "Personality", 
-                "value": "Sad"
-              }, 
-              {
-                "display_type": "boost_number", 
-                "trait_type": "Aqua Power", 
-                "value": 40
-              }, 
-              {
-                "display_type": "boost_percentage", 
-                "trait_type": "Stamina Increase", 
-                "value": 10
-              }, 
-              {
-                "display_type": "number", 
-                "trait_type": "Generation", 
-                "value": 2
-              }
-            ], 
-            "description": "MYDESCRIPTION", 
-            "external_url": "http://35.193.145.29:8080/ipfs/QmR1dDnSXz98vYXf4eL7kiR5qUEWCjJ3F96ts1Y7cfaqFH/?seed=44470282801578348832179893024236370200726324621251949271272486906730161538163", 
-            "image": "https://gateway.fxhash2.xyz/ipfs/QmUMfurjHWuFZ5zCBMpqd54dtCDrQ73nL2vr1Fz5anJ8ih/?fxhash=oouAU63vbKrixoY6fVFXBG5T1mpFxkx7yZpvucHgE1iY4Di77Zd", 
-            "name": "MYNAME"
-          }, 
-          "owner": "0x6018039B4D08274C5A546D6f0C5AFe1294bda0DF", 
-          "tokenID": 1, 
-          "tokenURI": "http://35.193.145.29:8080/getMetaData?tokenAddress=0x0a87e5aa5a1e33fb29b4adcc133ca5b6ca4b919c&seed=44470282801578348832179893024236370200726324621251949271272486906730161538163"
-        }, 
-        {
-          "metadata": {
-            "attributes": [
-              {
-                "trait_type": "Base", 
-                "value": "Starfish"
-              }, 
-              {
-                "trait_type": "Eyes", 
-                "value": "Big"
-              }, 
-              {
-                "trait_type": "Mouth", 
-                "value": "Surprised"
-              }, 
-              {
-                "trait_type": "Level", 
-                "value": 5
-              }, 
-              {
-                "trait_type": "Stamina", 
-                "value": 1.4
-              }, 
-              {
-                "trait_type": "Personality", 
-                "value": "Sad"
-              }, 
-              {
-                "display_type": "boost_number", 
-                "trait_type": "Aqua Power", 
-                "value": 40
-              }, 
-              {
-                "display_type": "boost_percentage", 
-                "trait_type": "Stamina Increase", 
-                "value": 10
-              }, 
-              {
-                "display_type": "number", 
-                "trait_type": "Generation", 
-                "value": 2
-              }
-            ], 
-            "description": "MYDESCRIPTION", 
-            "external_url": "http://35.193.145.29:8080/ipfs/QmR1dDnSXz98vYXf4eL7kiR5qUEWCjJ3F96ts1Y7cfaqFH/?seed=1549774233326679714722068223303179428761130751150441233103473846208146457050", 
-            "image": "https://gateway.fxhash2.xyz/ipfs/QmUMfurjHWuFZ5zCBMpqd54dtCDrQ73nL2vr1Fz5anJ8ih/?fxhash=ooLjChswzirThg46abzQVkGiBoJck2vjPbdw3Za8XNeSuLBVnUx", 
-            "name": "MYNAME"
-          }, 
-          "owner": "0x6018039B4D08274C5A546D6f0C5AFe1294bda0DF", 
-          "tokenID": 2, 
-          "tokenURI": "http://35.193.145.29:8080/getMetaData?tokenAddress=0x0a87e5aa5a1e33fb29b4adcc133ca5b6ca4b919c&seed=1549774233326679714722068223303179428761130751150441233103473846208146457050"
-        },
-        {
-          "metadata": {
-            "attributes": [
-              {
-                "trait_type": "Base", 
-                "value": "Starfish"
-              }, 
-              {
-                "trait_type": "Eyes", 
-                "value": "Big"
-              }, 
-              {
-                "trait_type": "Mouth", 
-                "value": "Surprised"
-              }, 
-              {
-                "trait_type": "Level", 
-                "value": 5
-              }, 
-              {
-                "trait_type": "Stamina", 
-                "value": 1.4
-              }, 
-              {
-                "trait_type": "Personality", 
-                "value": "Sad"
-              }, 
-              {
-                "display_type": "boost_number", 
-                "trait_type": "Aqua Power", 
-                "value": 40
-              }, 
-              {
-                "display_type": "boost_percentage", 
-                "trait_type": "Stamina Increase", 
-                "value": 10
-              }, 
-              {
-                "display_type": "number", 
-                "trait_type": "Generation", 
-                "value": 2
-              }
-            ], 
-            "description": "MYDESCRIPTION", 
-            "external_url": "http://35.193.145.29:8080/ipfs/QmR1dDnSXz98vYXf4eL7kiR5qUEWCjJ3F96ts1Y7cfaqFH/?seed=1549774233326679714722068223303179428761130751150441233103473846208146457050", 
-            "image": "https://gateway.fxhash2.xyz/ipfs/QmUMfurjHWuFZ5zCBMpqd54dtCDrQ73nL2vr1Fz5anJ8ih/?fxhash=oojXiD1rdg2Ss9ZRTxyNioeHDzhvppG7YRc3TsLPkVKYgTfFDYh", 
-            "name": "MYNAME"
-          }, 
-          "owner": "0x6018039B4D08274C5A546D6f0C5AFe1294bda0DF", 
-          "tokenID": 2, 
-          "tokenURI": "http://35.193.145.29:8080/getMetaData?tokenAddress=0x0a87e5aa5a1e33fb29b4adcc133ca5b6ca4b919c&seed=1549774233326679714722068223303179428761130751150441233103473846208146457050"
+      [1, 2, 3, 4, 5, 6].map(i => {
+        return {
+          tokenId: i,
+          tokenURI: "",
+          metadata: {
+            image: "https://picsum.photos/300/300"
+          },
+          owner: "0x0a9shf09ahs09hg90agasiogh"
         }
-      ]
+      })
     )
 
     const tokenContract = useRef(null);
@@ -320,18 +168,7 @@ const MintToken = () => {
         setGts(gts)
       }
       
-      // initialize()
-
-      async function getIterations () {
-        console.log("getting")
-        const res = await axios.get("http://35.193.145.29:5000/getIterations/0x0A87E5Aa5A1e33Fb29b4AdcC133ca5B6ca4B919C")
-        console.log("gotten")
-        const { data } = await res;
-        console.log(data)
-      }
-
-      // getIterations()
-
+      initialize()
     }, []);
 
     async function mint (e) {
@@ -392,7 +229,7 @@ const MintToken = () => {
                               <div className="content-left">
                                   <div className="media">
                                       <div style={{width: '100%', display: 'flex', justifyContent: 'space-around'}}>
-                                          <iframe src={"https://gateway.fxhash2.xyz/ipfs/QmUMfurjHWuFZ5zCBMpqd54dtCDrQ73nL2vr1Fz5anJ8ih/?fxhash=oo7N6gqMeM5WoYkRRZEzo9QD5D4FTfF8MyKgBwJ9r9GEMdAD22L"}  height="690" width="690" title="IPFS Frame"></iframe>
+                                          <iframe src={details.baseSiteURI}  height="690" width="690" title="IPFS Frame"></iframe>
                                       </div>
                                       <img src={imgdetail1} alt="Axies" />
                                   </div>
