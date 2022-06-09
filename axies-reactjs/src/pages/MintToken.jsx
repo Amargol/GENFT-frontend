@@ -52,162 +52,162 @@ const MintToken = () => {
     
     const [gts, setGts] = useState(
       [
-        // {
-        //   "metadata": {
-        //     "attributes": [
-        //       {
-        //         "trait_type": "Base", 
-        //         "value": "Starfish"
-        //       }, 
-        //       {
-        //         "trait_type": "Eyes", 
-        //         "value": "Big"
-        //       }, 
-        //       {
-        //         "trait_type": "Mouth", 
-        //         "value": "Surprised"
-        //       }, 
-        //       {
-        //         "trait_type": "Level", 
-        //         "value": 5
-        //       }, 
-        //       {
-        //         "trait_type": "Stamina", 
-        //         "value": 1.4
-        //       }, 
-        //       {
-        //         "trait_type": "Personality", 
-        //         "value": "Sad"
-        //       }, 
-        //       {
-        //         "display_type": "boost_number", 
-        //         "trait_type": "Aqua Power", 
-        //         "value": 40
-        //       }, 
-        //       {
-        //         "display_type": "boost_percentage", 
-        //         "trait_type": "Stamina Increase", 
-        //         "value": 10
-        //       }, 
-        //       {
-        //         "display_type": "number", 
-        //         "trait_type": "Generation", 
-        //         "value": 2
-        //       }
-        //     ], 
-        //     "description": "MYDESCRIPTION", 
-        //     "external_url": "http://35.193.145.29:8080/ipfs/QmR1dDnSXz98vYXf4eL7kiR5qUEWCjJ3F96ts1Y7cfaqFH/?seed=44470282801578348832179893024236370200726324621251949271272486906730161538163", 
-        //     "image": "https://gateway.fxhash2.xyz/ipfs/QmUMfurjHWuFZ5zCBMpqd54dtCDrQ73nL2vr1Fz5anJ8ih/?fxhash=oouAU63vbKrixoY6fVFXBG5T1mpFxkx7yZpvucHgE1iY4Di77Zd", 
-        //     "name": "MYNAME"
-        //   }, 
-        //   "owner": "0x6018039B4D08274C5A546D6f0C5AFe1294bda0DF", 
-        //   "tokenID": 1, 
-        //   "tokenURI": "http://35.193.145.29:8080/getMetaData?tokenAddress=0x0a87e5aa5a1e33fb29b4adcc133ca5b6ca4b919c&seed=44470282801578348832179893024236370200726324621251949271272486906730161538163"
-        // }, 
-        // {
-        //   "metadata": {
-        //     "attributes": [
-        //       {
-        //         "trait_type": "Base", 
-        //         "value": "Starfish"
-        //       }, 
-        //       {
-        //         "trait_type": "Eyes", 
-        //         "value": "Big"
-        //       }, 
-        //       {
-        //         "trait_type": "Mouth", 
-        //         "value": "Surprised"
-        //       }, 
-        //       {
-        //         "trait_type": "Level", 
-        //         "value": 5
-        //       }, 
-        //       {
-        //         "trait_type": "Stamina", 
-        //         "value": 1.4
-        //       }, 
-        //       {
-        //         "trait_type": "Personality", 
-        //         "value": "Sad"
-        //       }, 
-        //       {
-        //         "display_type": "boost_number", 
-        //         "trait_type": "Aqua Power", 
-        //         "value": 40
-        //       }, 
-        //       {
-        //         "display_type": "boost_percentage", 
-        //         "trait_type": "Stamina Increase", 
-        //         "value": 10
-        //       }, 
-        //       {
-        //         "display_type": "number", 
-        //         "trait_type": "Generation", 
-        //         "value": 2
-        //       }
-        //     ], 
-        //     "description": "MYDESCRIPTION", 
-        //     "external_url": "http://35.193.145.29:8080/ipfs/QmR1dDnSXz98vYXf4eL7kiR5qUEWCjJ3F96ts1Y7cfaqFH/?seed=1549774233326679714722068223303179428761130751150441233103473846208146457050", 
-        //     "image": "https://gateway.fxhash2.xyz/ipfs/QmUMfurjHWuFZ5zCBMpqd54dtCDrQ73nL2vr1Fz5anJ8ih/?fxhash=ooLjChswzirThg46abzQVkGiBoJck2vjPbdw3Za8XNeSuLBVnUx", 
-        //     "name": "MYNAME"
-        //   }, 
-        //   "owner": "0x6018039B4D08274C5A546D6f0C5AFe1294bda0DF", 
-        //   "tokenID": 2, 
-        //   "tokenURI": "http://35.193.145.29:8080/getMetaData?tokenAddress=0x0a87e5aa5a1e33fb29b4adcc133ca5b6ca4b919c&seed=1549774233326679714722068223303179428761130751150441233103473846208146457050"
-        // },
-        // {
-        //   "metadata": {
-        //     "attributes": [
-        //       {
-        //         "trait_type": "Base", 
-        //         "value": "Starfish"
-        //       }, 
-        //       {
-        //         "trait_type": "Eyes", 
-        //         "value": "Big"
-        //       }, 
-        //       {
-        //         "trait_type": "Mouth", 
-        //         "value": "Surprised"
-        //       }, 
-        //       {
-        //         "trait_type": "Level", 
-        //         "value": 5
-        //       }, 
-        //       {
-        //         "trait_type": "Stamina", 
-        //         "value": 1.4
-        //       }, 
-        //       {
-        //         "trait_type": "Personality", 
-        //         "value": "Sad"
-        //       }, 
-        //       {
-        //         "display_type": "boost_number", 
-        //         "trait_type": "Aqua Power", 
-        //         "value": 40
-        //       }, 
-        //       {
-        //         "display_type": "boost_percentage", 
-        //         "trait_type": "Stamina Increase", 
-        //         "value": 10
-        //       }, 
-        //       {
-        //         "display_type": "number", 
-        //         "trait_type": "Generation", 
-        //         "value": 2
-        //       }
-        //     ], 
-        //     "description": "MYDESCRIPTION", 
-        //     "external_url": "http://35.193.145.29:8080/ipfs/QmR1dDnSXz98vYXf4eL7kiR5qUEWCjJ3F96ts1Y7cfaqFH/?seed=1549774233326679714722068223303179428761130751150441233103473846208146457050", 
-        //     "image": "https://gateway.fxhash2.xyz/ipfs/QmUMfurjHWuFZ5zCBMpqd54dtCDrQ73nL2vr1Fz5anJ8ih/?fxhash=oojXiD1rdg2Ss9ZRTxyNioeHDzhvppG7YRc3TsLPkVKYgTfFDYh", 
-        //     "name": "MYNAME"
-        //   }, 
-        //   "owner": "0x6018039B4D08274C5A546D6f0C5AFe1294bda0DF", 
-        //   "tokenID": 2, 
-        //   "tokenURI": "http://35.193.145.29:8080/getMetaData?tokenAddress=0x0a87e5aa5a1e33fb29b4adcc133ca5b6ca4b919c&seed=1549774233326679714722068223303179428761130751150441233103473846208146457050"
-        // }
+        {
+          "metadata": {
+            "attributes": [
+              {
+                "trait_type": "Base", 
+                "value": "Starfish"
+              }, 
+              {
+                "trait_type": "Eyes", 
+                "value": "Big"
+              }, 
+              {
+                "trait_type": "Mouth", 
+                "value": "Surprised"
+              }, 
+              {
+                "trait_type": "Level", 
+                "value": 5
+              }, 
+              {
+                "trait_type": "Stamina", 
+                "value": 1.4
+              }, 
+              {
+                "trait_type": "Personality", 
+                "value": "Sad"
+              }, 
+              {
+                "display_type": "boost_number", 
+                "trait_type": "Aqua Power", 
+                "value": 40
+              }, 
+              {
+                "display_type": "boost_percentage", 
+                "trait_type": "Stamina Increase", 
+                "value": 10
+              }, 
+              {
+                "display_type": "number", 
+                "trait_type": "Generation", 
+                "value": 2
+              }
+            ], 
+            "description": "MYDESCRIPTION", 
+            "external_url": "http://35.193.145.29:8080/ipfs/QmR1dDnSXz98vYXf4eL7kiR5qUEWCjJ3F96ts1Y7cfaqFH/?seed=44470282801578348832179893024236370200726324621251949271272486906730161538163", 
+            "image": "https://gateway.fxhash2.xyz/ipfs/QmUMfurjHWuFZ5zCBMpqd54dtCDrQ73nL2vr1Fz5anJ8ih/?fxhash=oouAU63vbKrixoY6fVFXBG5T1mpFxkx7yZpvucHgE1iY4Di77Zd", 
+            "name": "MYNAME"
+          }, 
+          "owner": "0x6018039B4D08274C5A546D6f0C5AFe1294bda0DF", 
+          "tokenID": 1, 
+          "tokenURI": "http://35.193.145.29:8080/getMetaData?tokenAddress=0x0a87e5aa5a1e33fb29b4adcc133ca5b6ca4b919c&seed=44470282801578348832179893024236370200726324621251949271272486906730161538163"
+        }, 
+        {
+          "metadata": {
+            "attributes": [
+              {
+                "trait_type": "Base", 
+                "value": "Starfish"
+              }, 
+              {
+                "trait_type": "Eyes", 
+                "value": "Big"
+              }, 
+              {
+                "trait_type": "Mouth", 
+                "value": "Surprised"
+              }, 
+              {
+                "trait_type": "Level", 
+                "value": 5
+              }, 
+              {
+                "trait_type": "Stamina", 
+                "value": 1.4
+              }, 
+              {
+                "trait_type": "Personality", 
+                "value": "Sad"
+              }, 
+              {
+                "display_type": "boost_number", 
+                "trait_type": "Aqua Power", 
+                "value": 40
+              }, 
+              {
+                "display_type": "boost_percentage", 
+                "trait_type": "Stamina Increase", 
+                "value": 10
+              }, 
+              {
+                "display_type": "number", 
+                "trait_type": "Generation", 
+                "value": 2
+              }
+            ], 
+            "description": "MYDESCRIPTION", 
+            "external_url": "http://35.193.145.29:8080/ipfs/QmR1dDnSXz98vYXf4eL7kiR5qUEWCjJ3F96ts1Y7cfaqFH/?seed=1549774233326679714722068223303179428761130751150441233103473846208146457050", 
+            "image": "https://gateway.fxhash2.xyz/ipfs/QmUMfurjHWuFZ5zCBMpqd54dtCDrQ73nL2vr1Fz5anJ8ih/?fxhash=ooLjChswzirThg46abzQVkGiBoJck2vjPbdw3Za8XNeSuLBVnUx", 
+            "name": "MYNAME"
+          }, 
+          "owner": "0x6018039B4D08274C5A546D6f0C5AFe1294bda0DF", 
+          "tokenID": 2, 
+          "tokenURI": "http://35.193.145.29:8080/getMetaData?tokenAddress=0x0a87e5aa5a1e33fb29b4adcc133ca5b6ca4b919c&seed=1549774233326679714722068223303179428761130751150441233103473846208146457050"
+        },
+        {
+          "metadata": {
+            "attributes": [
+              {
+                "trait_type": "Base", 
+                "value": "Starfish"
+              }, 
+              {
+                "trait_type": "Eyes", 
+                "value": "Big"
+              }, 
+              {
+                "trait_type": "Mouth", 
+                "value": "Surprised"
+              }, 
+              {
+                "trait_type": "Level", 
+                "value": 5
+              }, 
+              {
+                "trait_type": "Stamina", 
+                "value": 1.4
+              }, 
+              {
+                "trait_type": "Personality", 
+                "value": "Sad"
+              }, 
+              {
+                "display_type": "boost_number", 
+                "trait_type": "Aqua Power", 
+                "value": 40
+              }, 
+              {
+                "display_type": "boost_percentage", 
+                "trait_type": "Stamina Increase", 
+                "value": 10
+              }, 
+              {
+                "display_type": "number", 
+                "trait_type": "Generation", 
+                "value": 2
+              }
+            ], 
+            "description": "MYDESCRIPTION", 
+            "external_url": "http://35.193.145.29:8080/ipfs/QmR1dDnSXz98vYXf4eL7kiR5qUEWCjJ3F96ts1Y7cfaqFH/?seed=1549774233326679714722068223303179428761130751150441233103473846208146457050", 
+            "image": "https://gateway.fxhash2.xyz/ipfs/QmUMfurjHWuFZ5zCBMpqd54dtCDrQ73nL2vr1Fz5anJ8ih/?fxhash=oojXiD1rdg2Ss9ZRTxyNioeHDzhvppG7YRc3TsLPkVKYgTfFDYh", 
+            "name": "MYNAME"
+          }, 
+          "owner": "0x6018039B4D08274C5A546D6f0C5AFe1294bda0DF", 
+          "tokenID": 2, 
+          "tokenURI": "http://35.193.145.29:8080/getMetaData?tokenAddress=0x0a87e5aa5a1e33fb29b4adcc133ca5b6ca4b919c&seed=1549774233326679714722068223303179428761130751150441233103473846208146457050"
+        }
       ]
     )
 
